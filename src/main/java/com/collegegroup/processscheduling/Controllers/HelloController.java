@@ -1,4 +1,4 @@
-package com.collegegroup.processscheduling;
+package com.collegegroup.processscheduling.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
