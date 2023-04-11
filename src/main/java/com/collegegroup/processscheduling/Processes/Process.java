@@ -1,4 +1,4 @@
-package com.collegegroup.processscheduling;
+package com.collegegroup.processscheduling.Processes;
 
 public class Process {
     private int pid;
