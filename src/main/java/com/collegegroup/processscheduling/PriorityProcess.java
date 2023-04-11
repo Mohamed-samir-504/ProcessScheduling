@@ -1,5 +1,5 @@
 package com.collegegroup.processscheduling;
 
-public class PriorityProcess {
+public class PriorityProcess extends Process {
     private int priority;
 }
