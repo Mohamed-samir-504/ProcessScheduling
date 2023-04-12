@@ -24,6 +24,7 @@ public class HelloApplication extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("Process scheduling");
             stage.show();
 
         } catch(Exception e) {

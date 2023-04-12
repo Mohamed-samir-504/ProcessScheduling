@@ -21,22 +21,17 @@ public class Scene1Controller {
     private Scene scene;
     private Parent root;
 
-    public void login(ActionEvent event) throws IOException {
 
-        String username = nameTextField.getText();
+    @FXML
+    void onStaticClick(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene2.fxml"));
         root = loader.load();
 
-        Scene2Controller scene2Controller = loader.getController();
-        scene2Controller.displayName(username);
-
-        //root = FXMLLoader.load(getClass().getResource("Scene2.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("Static mode");
         stage.show();
-
-
     }
 }
