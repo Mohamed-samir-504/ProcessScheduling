@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.collegegroup.processscheduling.StaticControllers.PriorityController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.StaticControllers.PriorityController">
+    <VBox layoutX="26.0" layoutY="19.0" prefHeight="600.0" prefWidth="800.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Label prefHeight="27.0" prefWidth="743.0" text="Process List">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Label>
 
+        <TableView fx:id="tableView" prefHeight="250.0" prefWidth="290.0">
+            <columns>
+                <TableColumn fx:id="pidColumn" prefWidth="120.0" text="PID" />
+                <TableColumn fx:id="burstColumn" prefWidth="154.0" text="Burst Time" />
+                <TableColumn fx:id="arrivalTimeColumn" prefWidth="91.0" text="Arrival Time" />
+            <TableColumn fx:id="priorityColumn" prefWidth="137.0" text="Priority" />
+            </columns>
+        </TableView>
+
+        <HBox alignment="CENTER" spacing="10.0">
+            <TextField fx:id="pidTextField" prefHeight="25.0" prefWidth="153.0" promptText="PID" />
+            <TextField fx:id="burstTextField" promptText="Burst Time" />
+            <TextField fx:id="arrivalTimeTextField" promptText="Arrival Time" />
+         <TextField fx:id="priorityTextField" promptText="Priority" />
+        </HBox>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="54.0" prefWidth="80.0" text="Insert" />
+                <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="54.0" prefWidth="92.0" text="Delete" />
+                <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Draw Gantt Chart" />
+            </children>
+        </AnchorPane>
+    </VBox>
 </AnchorPane>
