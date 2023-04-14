@@ -17,7 +17,7 @@ public class HelloApplication extends Application {
 
 
     @Override
-    //testt
+    //test
     public void start(Stage stage) throws IOException {
         try {
 

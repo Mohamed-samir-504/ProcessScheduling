@@ -9,13 +9,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Scene2Controller implements Initializable {
@@ -41,27 +39,31 @@ public class Scene2Controller implements Initializable {
     }
 
     @FXML
-    public void onGo(ActionEvent event)  {
-        String type = choiceBox.getValue();
+    public void onGo(ActionEvent event) throws IOException {
+        String currentChoice = choiceBox.getValue();
 
-        if(Objects.equals(type, "FCFS")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FCFS_scene.fxml"));
-
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-//            FCFS_sceneController FCFS = loader.getController();
-//            FCFS.display(textField.getText());
-
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("FCFS");
-            stage.show();
+        Parent tableViewParent = null;
+        if (currentChoice.equals("FCFS") ||
+            currentChoice.equals("SJF (preemptive)") ||
+            currentChoice.equals("SJF (non-preemptive)")) {
+            tableViewParent = FXMLLoader.load(getClass().getResource("FCFS_SJF.fxml"));
         }
+        else if (currentChoice.equals("Round robin"))
+        {
+            tableViewParent = FXMLLoader.load(getClass().getResource("RoundRobin.fxml"));
+        } else if (currentChoice.equals("priority (preemptive)")||currentChoice.equals("priority (non-preemptive)")) {
+            tableViewParent = FXMLLoader.load(getClass().getResource("Priority.fxml"));
+        }
+        else
+            return;
+
+
+        Scene tableViewScene = new Scene(tableViewParent);
+        //This line gets the Stage information
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
     }
 
 }

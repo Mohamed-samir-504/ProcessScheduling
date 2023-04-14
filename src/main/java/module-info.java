@@ -7,5 +7,7 @@ module com.collegegroup.processscheduling {
     exports com.collegegroup.processscheduling;
     exports com.collegegroup.processscheduling.Processes;
     opens com.collegegroup.processscheduling.Processes to javafx.fxml;
+    exports com.collegegroup.processscheduling.StaticControllers;
+    opens com.collegegroup.processscheduling.StaticControllers to javafx.fxml;
 
 }

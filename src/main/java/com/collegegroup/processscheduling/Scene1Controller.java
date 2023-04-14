@@ -27,7 +27,6 @@ public class Scene1Controller {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene2.fxml"));
         root = loader.load();
-
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
