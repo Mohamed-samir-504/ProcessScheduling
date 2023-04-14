@@ -5,11 +5,20 @@ import java.util.ResourceBundle;
 import com.collegegroup.processscheduling.Processes.Processs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -23,11 +32,12 @@ public class FCFS_SJFController implements Initializable {
     @FXML private TableColumn<Processs, String> pidColumn;
     @FXML private TableColumn<Processs, String> burstColumn;
     @FXML private TableColumn<Processs, String> arrivalTimeColumn;
-    
+    @FXML HBox hbox = new HBox();
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
+
 
 
     @Override
@@ -46,6 +56,9 @@ public class FCFS_SJFController implements Initializable {
         arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        hbox.setAlignment(Pos.CENTER);
+        hbox.setMaxWidth(100);
+        hbox.setFillHeight(true);
 
     }
     @FXML
@@ -67,8 +80,7 @@ public class FCFS_SJFController implements Initializable {
             }
     }
 
-
-//Create dummy data (to be removed)
+    //Create dummy data (to be removed)
     @FXML
     private ObservableList<Processs> lol() {
         // ArrayList but for GUI (sho5a5)
@@ -77,4 +89,37 @@ public class FCFS_SJFController implements Initializable {
         gg.add(new Processs("55","5","4"));
         return gg;
     }
+
+    StackPane processFactory(Processs s)
+    {
+        int Width = Integer.parseInt(s.getBurst());
+        String name = s.getPid();
+        Rectangle newProcess = new Rectangle(Width*5,50);
+        Text text = new Text(name);
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(newProcess, text);
+        newProcess.setFill(Color.TRANSPARENT);
+        newProcess.setStroke(Color.BLACK);
+        return stack;
+    }
+    @FXML
+    public void onDrawClick(ActionEvent e)
+    {
+        hbox.getChildren().clear();
+        for (Processs s : tableView.getItems()) {
+            StackPane x = processFactory(s);
+            hbox.getChildren().add(x);
+            x.setMaxHeight(200);
+            x.setMaxWidth(300);
+            HBox.setHgrow(x, Priority.ALWAYS);
+        }
+    }
+
+
+
+
+
+
+
+
 }

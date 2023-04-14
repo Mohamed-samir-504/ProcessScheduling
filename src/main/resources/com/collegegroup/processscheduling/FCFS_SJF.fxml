@@ -31,12 +31,13 @@
          <TextField fx:id="burstTextField" promptText="Burst Time" />
          <TextField fx:id="arrivalTimeTextField" promptText="Arrival Time" />
       </HBox>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane>
          <children>
-            <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="54.0" prefWidth="80.0" text="Insert" />
-            <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="54.0" prefWidth="92.0" text="Delete" />
-            <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Draw Gantt Chart" />
+            <Button layoutX="267.0" layoutY="22.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
+            <Button layoutX="420.0" layoutY="22.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
+            <Button layoutX="338.0" layoutY="70.0" mnemonicParsing="false" onAction="#onDrawClick" text="Draw Gantt Chart" />
          </children>
       </AnchorPane>
+      <HBox fx:id="hbox" />
    </VBox>
 </AnchorPane>

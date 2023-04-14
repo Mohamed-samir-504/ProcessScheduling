@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="Refactor, added new controllers, FXMLs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Processes/PriorityProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Processes/PriorityProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Processes/RoundRobinProcess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/PriorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/PriorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/RoundRobinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/Priority.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/RoundRobin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Priority.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Processes/RoundRobinProcess.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/RoundRobin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/PriorityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/PriorityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/FCFS_SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/FCFS_SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Processes/PriorityProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Processes/PriorityProcess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/RoundRobinController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/RoundRobinController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681438574727</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor, added new controllers, FXMLs.">
+      <created>1681439980194</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681439980194</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
