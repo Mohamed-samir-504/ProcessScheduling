@@ -4,12 +4,28 @@ public class Processs {
     private String pid;
     private String burst;
     private String arrivalTime;
+    private String startTime;
+    private String endTime;
+    private String name;
 
     public Processs(String pid, String burst, String arrivalTime) {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
     }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public Processs()
     {}
 

@@ -77,8 +77,10 @@ public class PriorityController implements Initializable {
     private ObservableList<PriorityProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<PriorityProcess> gg = FXCollections.observableArrayList();
-        gg.add(new PriorityProcess("3","5","4","5"));
-        gg.add(new PriorityProcess("55","5","4","3"));
+        gg.add(new PriorityProcess("3","53","4","5"));
+        gg.add(new PriorityProcess("55","54","4","3"));
+        gg.add(new PriorityProcess("45","45","4","3"));
+        gg.add(new PriorityProcess("565","200","4","3"));
         return gg;
     }
 }
