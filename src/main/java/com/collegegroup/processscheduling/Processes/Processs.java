@@ -6,7 +6,6 @@ public class Processs {
     private String arrivalTime;
     private String startTime;
     private String endTime;
-    private String name;
 
     public Processs(String pid, String burst, String arrivalTime) {
         this.pid = pid;
@@ -22,9 +21,7 @@ public class Processs {
         return endTime;
     }
 
-    public String getName() {
-        return name;
-    }
+
 
     public Processs()
     {}

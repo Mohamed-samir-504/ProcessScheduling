@@ -34,11 +34,12 @@
          <TextField fx:id="priorityTextField" promptText="Priority" />
         </HBox>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
-            <children>
-                <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="54.0" prefWidth="80.0" text="Insert" />
-                <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="54.0" prefWidth="92.0" text="Delete" />
-                <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Draw Gantt Chart" />
-            </children>
+            <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed"
+                    prefHeight="54.0" prefWidth="80.0" text="Insert"/>
+            <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed"
+                    prefHeight="54.0" prefWidth="92.0" text="Delete"/>
+            <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0"
+                    text="Draw Gantt Chart"/>
         </AnchorPane>
     </VBox>
 </AnchorPane>

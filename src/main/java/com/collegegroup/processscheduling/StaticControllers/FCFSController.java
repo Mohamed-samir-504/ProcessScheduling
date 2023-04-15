@@ -1,43 +1,45 @@
 package com.collegegroup.processscheduling.StaticControllers;
 
+import com.collegegroup.processscheduling.GanttChartController;
 import com.collegegroup.processscheduling.Processes.PriorityProcess;
 import com.collegegroup.processscheduling.Processes.Processs;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-import javafx.stage.Screen;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FCFS_SJFController implements Initializable {
+public class FCFSController implements Initializable {
 
     //configure the table
     @FXML private TableView<Processs> tableView;
     @FXML private TableColumn<Processs, String> pidColumn;
     @FXML private TableColumn<Processs, String> burstColumn;
     @FXML private TableColumn<Processs, String> arrivalTimeColumn;
-    @FXML
-    FlowPane hbox;
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
     int time = 0;
     int sum = 0;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
 
 
@@ -94,41 +96,25 @@ public class FCFS_SJFController implements Initializable {
         return gg;
     }
 
-    VBox processFactory(Processs s)
-    {
-        int Width = Integer.parseInt(s.getBurst());
 
-        String name = s.getPid();
-
-        Rectangle newProcess = new Rectangle(Width*tableView.getWidth()/sum,50);
-
-        Text text1 = new Text(name);
-
-        StackPane stack = new StackPane();
-
-        stack.getChildren().addAll(newProcess, text1);
-
-
-
-        newProcess.setFill(Color.TRANSPARENT);
-        newProcess.setStroke(Color.BLACK);
-
-        VBox vBox = new VBox();
-        vBox.getChildren().add(stack);
-        Text text2 = new Text(Integer.toString(time));
-        vBox.getChildren().add(text2);
-        time+= Integer.parseInt(s.getBurst());
-        return vBox;
-    }
 
     @FXML
-    public void onDrawClick(ActionEvent e)
-    {
-        hbox.getChildren().clear();
+    public void onDrawClick(ActionEvent e) throws IOException {
 
-        for (Processs s : tableView.getItems()) {
-            hbox.getChildren().add(processFactory(s));
-        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
+        root = loader.load();
+
+        GanttChartController ganttChartController = loader.getController();
+        ganttChartController.getProcessList(tableView.getItems());
+
+
+        //root = FXMLLoader.load(getClass().getResource("GanttChart.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+
 
 
 

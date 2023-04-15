@@ -5,16 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="Refactor, added new controllers, FXMLs.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/GanttChartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GanttChart.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GanttChartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/SJFController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Processes/Processs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Processes/Processs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/PriorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/PriorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/GanttChartController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/FCFS_SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/FCFS_SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GanttChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/Priority.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/FCFS_SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/FCFS_SJF.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/PriorityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/PriorityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Priority.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Processes/Processs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/Processes/Processs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/FCFS_SJFController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/GanttChartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/StaticControllers/GanttChartController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +28,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -74,6 +78,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.collegegroup.processscheduling" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.collegegroup.processscheduling.StaticControllers" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -121,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681495571988</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactor, added new controllers, FXMLs.">
+      <created>1681569573937</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681569573937</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Refactor, added new controllers, FXMLs.">
+      <created>1681569587166</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681569587166</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,8 +162,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Refactor, added new controllers, FXMLs." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/StaticControllers/FCFSController.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="javafx.fxml.FXMLLoader" memberName="controllerAccessor" />
         <PinnedItemInfo parentTag="javafx.scene.control.TableView" memberName="columns" />
       </pinned-members>
     </pin-to-top-manager>
