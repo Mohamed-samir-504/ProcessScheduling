@@ -22,7 +22,7 @@ public class Scene2Controller implements Initializable {
     private TextField textField;
     @FXML
     private ChoiceBox<String> choiceBox = new ChoiceBox<String>();
-    private String[] schedulerTypes = {"Round robin", "FCFS", "SJF (preemptive)",
+    private final String[] schedulerTypes = {"Round robin", "FCFS", "SJF (preemptive)",
             "SJF (non-preemptive)","priority (preemptive)","priority (non-preemptive)"};
 
 

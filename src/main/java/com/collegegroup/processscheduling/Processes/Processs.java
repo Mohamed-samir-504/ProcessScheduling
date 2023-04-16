@@ -40,13 +40,12 @@ public class Processs {
 
     public boolean isEmpty()
     {
-        return pid.isBlank() || burst.isBlank() || arrivalTime.isBlank();
+        return burst.isBlank() || arrivalTime.isBlank();
     }
     public boolean isValid()
     {
         try
         {
-            Integer.parseInt(pid);
             Integer.parseInt(burst);
             Integer.parseInt(arrivalTime);
             return true;

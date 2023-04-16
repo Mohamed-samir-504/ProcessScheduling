@@ -1,8 +1,8 @@
 package com.collegegroup.processscheduling.StaticControllers;
 
-import com.collegegroup.processscheduling.GanttChartController;
 import com.collegegroup.processscheduling.Processes.PriorityProcess;
 import com.collegegroup.processscheduling.Processes.Processs;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FCFSController implements Initializable {
@@ -35,11 +36,11 @@ public class FCFSController implements Initializable {
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
+    Stage stage;
+    Scene scene;
+    Parent root;
     int time = 0;
     int sum = 0;
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
 
 
 
@@ -88,10 +89,10 @@ public class FCFSController implements Initializable {
     private ObservableList<Processs> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<Processs> gg = FXCollections.observableArrayList();
-        gg.add(new Processs("3","5","4"));
-        gg.add(new Processs("55","5","4"));
-        gg.add(new PriorityProcess("45","45","4"));
-        gg.add(new PriorityProcess("565","200","4"));
+        gg.add(new Processs("P1","5","4"));
+        gg.add(new Processs("P2","5","4"));
+        gg.add(new PriorityProcess("P3","45","4"));
+        gg.add(new PriorityProcess("P4","200","4"));
         sum = 255;
         return gg;
     }
@@ -99,23 +100,18 @@ public class FCFSController implements Initializable {
 
 
     @FXML
-    public void onDrawClick(ActionEvent e) throws IOException {
+    public void onDrawClick(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
         root = loader.load();
 
-        GanttChartController ganttChartController = loader.getController();
-        ganttChartController.getProcessList(tableView.getItems());
-
-
-        //root = FXMLLoader.load(getClass().getResource("GanttChart.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        GanttChart gc = loader.getController();
+        gc.init(tableView.getItems(), sum);
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
-
-
 
 
 
