@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.StaticControllers.PriorityController">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.PriorityController">
     <VBox layoutX="26.0" layoutY="19.0" prefHeight="600.0" prefWidth="800.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Label prefHeight="27.0" prefWidth="743.0" text="Process List">
             <font>
@@ -34,12 +34,9 @@
          <TextField fx:id="priorityTextField" promptText="Priority" />
         </HBox>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
-            <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed"
-                    prefHeight="54.0" prefWidth="80.0" text="Insert"/>
-            <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed"
-                    prefHeight="54.0" prefWidth="92.0" text="Delete"/>
-            <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0"
-                    text="Draw Gantt Chart"/>
+            <Button layoutX="287.0" layoutY="66.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="54.0" prefWidth="80.0" text="Insert" />
+            <Button layoutX="400.0" layoutY="66.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="54.0" prefWidth="92.0" text="Delete" />
+            <Button layoutX="338.0" layoutY="132.0" mnemonicParsing="false" onAction="#onDrawClick" prefHeight="54.0" prefWidth="108.0" text="Draw Gantt Chart" />
         </AnchorPane>
     </VBox>
 </AnchorPane>

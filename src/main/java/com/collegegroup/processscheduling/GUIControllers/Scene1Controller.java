@@ -1,4 +1,4 @@
-package com.collegegroup.processscheduling;
+package com.collegegroup.processscheduling.GUIControllers;
 
 
 import java.io.IOException;

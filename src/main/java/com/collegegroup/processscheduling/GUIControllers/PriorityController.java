@@ -1,8 +1,9 @@
-package com.collegegroup.processscheduling.StaticControllers;
+package com.collegegroup.processscheduling.GUIControllers;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import com.collegegroup.processscheduling.Processes.PriorityProcess;
-import com.collegegroup.processscheduling.Processes.Processs;
-
+import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,45 +13,45 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-public class FCFSController implements Initializable {
+/**
+ * FXML Controller class
+ *
+ * @author jwright
+ */
+public class PriorityController implements Initializable {
 
     //configure the table
-    @FXML private TableView<Processs> tableView;
-    @FXML private TableColumn<Processs, String> pidColumn;
-    @FXML private TableColumn<Processs, String> burstColumn;
-    @FXML private TableColumn<Processs, String> arrivalTimeColumn;
+    @FXML private TableView<GUIProcess> tableView;
+    @FXML private TableColumn<GUIProcess, String> pidColumn;
+    @FXML private TableColumn<GUIProcess, String> burstColumn;
+    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
+    @FXML private TableColumn<GUIProcess, String> priorityColumn;
+
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
+    @FXML private TextField priorityTextField;
+    int time = 0;
+    int sum = 0;
     Stage stage;
     Scene scene;
     Parent root;
-    int time = 0;
-    int sum = 0;
-
 
 
     @Override
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
         //set up the columns in the table
-        pidColumn.setCellValueFactory(new PropertyValueFactory<>("pid"));
-        burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
-        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
+        pidColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("pid"));
+        burstColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("burst"));
+        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("arrivalTime"));
+        priorityColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("priority"));
         //load dummy data
         tableView.setItems(lol());
         //Set rows to be Editable
@@ -65,47 +66,46 @@ public class FCFSController implements Initializable {
     @FXML
     public void insertButtonPushed()
     {
-        Processs newProcess = new Processs(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
+        GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
 
-        if(!newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
     }
     @FXML
     public void deleteButtonPushed() {
-        ObservableList<Processs> allProcesses, selected;
+        ObservableList<GUIProcess> allProcesses;
+        ObservableList<GUIProcess> selected;
         allProcesses = tableView.getItems();
         selected = tableView.getSelectionModel().getSelectedItems();
 
-            for (Processs processs : selected) {
-                allProcesses.remove(processs);
-                sum-=Integer.parseInt(processs.getBurst());
-            }
+        for (GUIProcess GUIProcess : selected) {
+            allProcesses.remove(GUIProcess);
+            sum-=Integer.parseInt(GUIProcess.getBurst());
+        }
     }
 
     //Create dummy data (to be removed)
     @FXML
-    private ObservableList<Processs> lol() {
+    private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
-        ObservableList<Processs> gg = FXCollections.observableArrayList();
-        gg.add(new Processs("P1","5","4"));
-        gg.add(new Processs("P2","5","4"));
-        gg.add(new PriorityProcess("P3","45","4"));
-        gg.add(new PriorityProcess("P4","200","4"));
-        sum = 255;
+        ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
+        gg.add(new GUIProcess("3","53","4","5"));
+        gg.add(new GUIProcess("55","54","4","3"));
+        gg.add(new GUIProcess("45","45","4","3"));
+        gg.add(new GUIProcess("565","200","4","3"));
+        sum = 53+53+45+200;
         return gg;
     }
-
-
-
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
         root = loader.load();
-
-        GanttChart gc = loader.getController();
+        GanttChartController gc = loader.getController();
+        //Data must be sorted here before being passed
+        //TODO()
         gc.init(tableView.getItems(), sum);
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -113,15 +113,11 @@ public class FCFSController implements Initializable {
         stage.setResizable(false);
         stage.show();
 
-
-
     }
 
-
-
-
-
-
-
-
 }
+
+
+
+
+

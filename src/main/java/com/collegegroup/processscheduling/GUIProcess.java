@@ -1,16 +1,18 @@
-package com.collegegroup.processscheduling.Processes;
+package com.collegegroup.processscheduling;
 
-public class Processs {
+public class GUIProcess {
     private String pid;
     private String burst;
     private String arrivalTime;
+    private String priority;
     private String startTime;
     private String endTime;
 
-    public Processs(String pid, String burst, String arrivalTime) {
+    public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
+        this.priority = "0";
     }
 
     public String getStartTime() {
@@ -22,8 +24,14 @@ public class Processs {
     }
 
 
+    public GUIProcess(String pid, String burst, String arrivalTime, String priority) {
+        this.pid = pid;
+        this.burst = burst;
+        this.arrivalTime = arrivalTime;
+        this.priority = priority;
+    }
 
-    public Processs()
+    public GUIProcess()
     {}
 
     public String  getPid() {
@@ -34,13 +42,17 @@ public class Processs {
         return burst;
     }
 
+    public String getPriority() {
+        return priority;
+    }
+
     public String getArrivalTime() {
         return arrivalTime;
     }
 
     public boolean isEmpty()
     {
-        return burst.isBlank() || arrivalTime.isBlank();
+        return !burst.isBlank() && !arrivalTime.isBlank();
     }
     public boolean isValid()
     {

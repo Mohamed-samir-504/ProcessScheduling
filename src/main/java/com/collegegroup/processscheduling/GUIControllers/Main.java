@@ -1,23 +1,16 @@
-package com.collegegroup.processscheduling;
+package com.collegegroup.processscheduling.GUIControllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
-
-    //Scene : a drawing surface for graphical content (Text, shapes , images)
-
+public class Main extends Application {
 
     @Override
-    //test
     public void start(Stage stage) throws IOException {
         try {
 

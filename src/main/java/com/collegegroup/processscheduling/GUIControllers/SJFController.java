@@ -1,12 +1,15 @@
-package com.collegegroup.processscheduling.StaticControllers;
+package com.collegegroup.processscheduling.GUIControllers;
 
-import com.collegegroup.processscheduling.Processes.PriorityProcess;
-import com.collegegroup.processscheduling.Processes.Processs;
+import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,17 +22,19 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SJFController implements Initializable {
 
     //configure the table
-    @FXML private TableView<Processs> tableView;
-    @FXML private TableColumn<Processs, String> pidColumn;
-    @FXML private TableColumn<Processs, String> burstColumn;
-    @FXML private TableColumn<Processs, String> arrivalTimeColumn;
+    @FXML private TableView<GUIProcess> tableView;
+    @FXML private TableColumn<GUIProcess, String> pidColumn;
+    @FXML private TableColumn<GUIProcess, String> burstColumn;
+    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML
     FlowPane hbox;
     //These instance variables are used to create new Person objects
@@ -38,6 +43,9 @@ public class SJFController implements Initializable {
     @FXML private TextField arrivalTimeTextField;
     int time = 0;
     int sum = 0;
+    Stage stage;
+    Scene scene;
+    Parent root;
 
 
 
@@ -62,39 +70,37 @@ public class SJFController implements Initializable {
     @FXML
     public void insertButtonPushed()
     {
-        Processs newProcess = new Processs(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
+        GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
 
-        if(!newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
     }
     @FXML
     public void deleteButtonPushed() {
-        ObservableList<Processs> allProcesses, selected;
+        ObservableList<GUIProcess> allProcesses, selected;
         allProcesses = tableView.getItems();
         selected = tableView.getSelectionModel().getSelectedItems();
 
-            for (Processs processs : selected) {
-                allProcesses.remove(processs);
-                sum-=Integer.parseInt(processs.getBurst());
+            for (GUIProcess GUIProcess : selected) {
+                allProcesses.remove(GUIProcess);
+                sum-=Integer.parseInt(GUIProcess.getBurst());
             }
     }
 
     //Create dummy data (to be removed)
     @FXML
-    private ObservableList<Processs> lol() {
+    private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
-        ObservableList<Processs> gg = FXCollections.observableArrayList();
-        gg.add(new Processs("3","5","4"));
-        gg.add(new Processs("55","5","4"));
-        gg.add(new PriorityProcess("45","45","4"));
-        gg.add(new PriorityProcess("565","200","4"));
+        ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
+        gg.add(new GUIProcess("3","5","4"));
+        gg.add(new GUIProcess("55","5","4"));
         sum = 255;
         return gg;
     }
 
-    VBox processFactory(Processs s)
+    VBox processFactory(GUIProcess s)
     {
         int Width = Integer.parseInt(s.getBurst());
 
@@ -122,13 +128,18 @@ public class SJFController implements Initializable {
     }
 
     @FXML
-    public void onDrawClick(ActionEvent e)
-    {
-        hbox.getChildren().clear();
-
-        for (Processs s : tableView.getItems()) {
-            hbox.getChildren().add(processFactory(s));
-        }
+    public void onDrawClick(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
+        root = loader.load();
+        GanttChartController gc = loader.getController();
+        //Data must be sorted here before being passed
+        //TODO()
+        gc.init(tableView.getItems(), sum);
+        stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
 
 
 
