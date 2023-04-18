@@ -80,7 +80,6 @@ public class RoundRobinController implements Initializable {
     }
 
     //TODO()
-
     @FXML
     public void drawButtonPushed(ActionEvent event) throws IOException {
         quantum = quantumTextField.getText();

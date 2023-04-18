@@ -10,15 +10,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="463.0" prefWidth="1047.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.GanttChartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.GanttChartController">
    <children>
-      <Text layoutX="423.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Gantt Chart">
+      <Text layoutX="268.0" layoutY="75.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Static Gantt Chart">
          <font>
-            <Font size="33.0" />
+            <Font name="Arial Black" size="33.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" layoutX="475.0" layoutY="392.0" mnemonicParsing="false" onAction="#onClickDraw" prefHeight="37.0" prefWidth="65.0" text="Draw" textOverrun="WORD_ELLIPSIS" />
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="29.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="200.0" prefWidth="722.0" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="145.0">
+      <Button alignment="CENTER" layoutX="368.0" layoutY="520.0" mnemonicParsing="false" onAction="#onClickDraw" prefHeight="37.0" prefWidth="65.0" text="Draw" textOverrun="WORD_ELLIPSIS" />
+      <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="29.0" layoutY="145.0" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="271.0" prefWidth="475.0" AnchorPane.bottomAnchor="184.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="145.0">
          <padding>
             <Insets left="20.0" right="20.0" top="20.0" />
          </padding>
@@ -30,11 +30,12 @@
             </HBox>
          </content>
       </ScrollPane>
-      <TableView fx:id="tableView" layoutX="769.0" layoutY="145.0" prefHeight="200.0" prefWidth="243.0">
+      <TableView fx:id="tableView" layoutX="514.0" layoutY="145.0" prefHeight="271.0" prefWidth="272.0">
         <columns>
-          <TableColumn fx:id="pidColumn" prefWidth="75.0" text="PID" />
-          <TableColumn fx:id="burstColumn" prefWidth="75.0" text="Burst time" />
-            <TableColumn fx:id="arrivalTimeColumn" prefWidth="75.0" text="Arrival time" />
+          <TableColumn fx:id="pidColumn" prefWidth="45.0" text="PID" />
+          <TableColumn fx:id="burstColumn" prefWidth="79.0" text="Burst time" />
+            <TableColumn fx:id="arrivalTimeColumn" prefWidth="82.0" text="Arrival time" />
+            <TableColumn fx:id="priorityColumn" prefWidth="62.0" text="Priority" />
         </columns>
       </TableView>
    </children>

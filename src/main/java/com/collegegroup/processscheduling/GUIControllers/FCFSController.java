@@ -1,6 +1,8 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
+import com.collegegroup.processscheduling.Comparators.SortByFCFS;
 import com.collegegroup.processscheduling.GUIProcess;
+import com.collegegroup.processscheduling.Process;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,35 +12,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
+import static com.collegegroup.processscheduling.util.*;
 
 public class FCFSController implements Initializable {
 
-    //configure the table
     @FXML private TableView<GUIProcess> tableView;
-    @FXML private TableColumn<GUIProcess, String> pidColumn;
-    @FXML private TableColumn<GUIProcess, String> burstColumn;
-    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
-    //These instance variables are used to create new Person objects
-    @FXML private TextField pidTextField;
-    @FXML private TextField burstTextField;
-    @FXML private TextField arrivalTimeTextField;
-    Stage stage;
-    Scene scene;
-    Parent root;
-    int time = 0;
+    @FXML private TableColumn<GUIProcess, String> pidColumn,burstColumn,arrivalTimeColumn;
+    @FXML private TextField pidTextField,burstTextField,arrivalTimeTextField;
     int sum = 0;
-
 
 
     @Override
@@ -57,7 +48,6 @@ public class FCFSController implements Initializable {
         arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
     @FXML
     public void insertButtonPushed()
@@ -67,6 +57,7 @@ public class FCFSController implements Initializable {
         if(newProcess.isEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
+
         }
     }
     @FXML
@@ -91,31 +82,22 @@ public class FCFSController implements Initializable {
         sum = 255;
         return gg;
     }
-
-
-
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
-
+        Stage stage;
+        Scene scene;
+        Parent root;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
         root = loader.load();
         GanttChartController gc = loader.getController();
         //Data must be sorted here before being passed
         //TODO()
+        tableView.getItems().sort(new SortByFCFS());
         gc.init(tableView.getItems(), sum);
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
     }
-
-
-
-
-
-
-
-
 }
