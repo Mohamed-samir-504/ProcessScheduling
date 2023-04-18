@@ -1,8 +1,6 @@
 package com.collegegroup.processscheduling.GUIControllers;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
+import com.collegegroup.processscheduling.Comparators.SortByPriority_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,14 +13,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author jwright
- */
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+@SuppressWarnings("ALL")
 public class PriorityController implements Initializable {
 
     //configure the table
@@ -31,13 +29,13 @@ public class PriorityController implements Initializable {
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
+    @FXML private CheckBox preemptive;
 
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
     @FXML private TextField priorityTextField;
-    int time = 0;
     int sum = 0;
     Stage stage;
     Scene scene;
@@ -48,17 +46,12 @@ public class PriorityController implements Initializable {
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
         //set up the columns in the table
-        pidColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("pid"));
-        burstColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("burst"));
-        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("arrivalTime"));
-        priorityColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("priority"));
+        pidColumn.setCellValueFactory(new PropertyValueFactory<>("pid"));
+        burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
+        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
+        priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
         //load dummy data
         tableView.setItems(lol());
-        //Set rows to be Editable
-        tableView.setEditable(true);
-        pidColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        burstColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
@@ -66,7 +59,7 @@ public class PriorityController implements Initializable {
     @FXML
     public void insertButtonPushed()
     {
-        GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
+        GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText(),priorityTextField.getText());
 
         if(newProcess.isEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
@@ -92,9 +85,9 @@ public class PriorityController implements Initializable {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
         gg.add(new GUIProcess("3","53","4","5"));
-        gg.add(new GUIProcess("55","54","4","3"));
+        gg.add(new GUIProcess("55","54","4","7"));
         gg.add(new GUIProcess("45","45","4","3"));
-        gg.add(new GUIProcess("565","200","4","3"));
+        gg.add(new GUIProcess("565","200","4","1"));
         sum = 53+53+45+200;
         return gg;
     }
@@ -105,7 +98,11 @@ public class PriorityController implements Initializable {
         root = loader.load();
         GanttChartController gc = loader.getController();
         //Data must be sorted here before being passed
-        //TODO()
+        if(preemptive.isSelected())
+        {
+            //TODO()
+        }
+        else tableView.getItems().sort(new SortByPriority_NP());
         gc.init(tableView.getItems(), sum);
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

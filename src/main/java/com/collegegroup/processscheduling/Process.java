@@ -1,14 +1,14 @@
 package com.collegegroup.processscheduling;
 
-class Process {
-    private int ID,Arrival,burst,priority,start,end,time_completed;
-    private String pid;
-    private boolean visited = false;
-    private static int curr = 0;
-    public Process(String pid, int arrival, int brust, int priority) {
+public class Process {
+    public int ID,Arrival,burst,priority,start,end,time_completed;
+    public String pid;
+    public boolean visited = false;
+    public static int curr = 0;
+    public Process(String pid, int arrival, int burst, int priority) {
         this.pid=pid;
         this.Arrival=arrival;
-        this.burst=brust;
+        this.burst=burst;
         this.priority=priority;
     }
 

@@ -1,5 +1,6 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
+import com.collegegroup.processscheduling.Comparators.SortBySJF_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,10 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.FlowPane;
@@ -41,6 +39,7 @@ public class SJFController implements Initializable {
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
+    @FXML private CheckBox preemptive;
     int time = 0;
     int sum = 0;
     Stage stage;
@@ -65,13 +64,11 @@ public class SJFController implements Initializable {
         arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
     @FXML
     public void insertButtonPushed()
     {
         GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
-
         if(newProcess.isEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
@@ -100,32 +97,6 @@ public class SJFController implements Initializable {
         return gg;
     }
 
-    VBox processFactory(GUIProcess s)
-    {
-        int Width = Integer.parseInt(s.getBurst());
-
-        String name = s.getPid();
-
-        Rectangle newProcess = new Rectangle(Width*tableView.getWidth()/sum,50);
-
-        Text text1 = new Text(name);
-
-        StackPane stack = new StackPane();
-
-        stack.getChildren().addAll(newProcess, text1);
-
-
-
-        newProcess.setFill(Color.TRANSPARENT);
-        newProcess.setStroke(Color.BLACK);
-
-        VBox vBox = new VBox();
-        vBox.getChildren().add(stack);
-        Text text2 = new Text(Integer.toString(time));
-        vBox.getChildren().add(text2);
-        time+= Integer.parseInt(s.getBurst());
-        return vBox;
-    }
 
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
@@ -133,17 +104,21 @@ public class SJFController implements Initializable {
         root = loader.load();
         GanttChartController gc = loader.getController();
         //Data must be sorted here before being passed
-        //TODO()
+
+        if(preemptive.isSelected())
+        {
+            //TODO()
+        }
+
+        else tableView.getItems().sort(new SortBySJF_NP());
+
+
         gc.init(tableView.getItems(), sum);
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
-
-
-
     }
 
 

@@ -1,12 +1,14 @@
 package com.collegegroup.processscheduling;
 
+
 public class GUIProcess {
+
     private String pid;
     private String burst;
     private String arrivalTime;
     private String priority;
-    private String startTime;
-    private String endTime;
+    private int startTime = 0;
+    private int endTime = 0;
 
     public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
@@ -15,12 +17,25 @@ public class GUIProcess {
         this.priority = "0";
     }
 
-    public String getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public String getEndTime() {
+    public void setStartTime(int startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setEndTime(int endTime) {
+        this.endTime = endTime;
+    }
+
+    public int getEndTime() {
         return endTime;
+    }
+
+    public void setBurst(int x)
+    {
+        burst = String.valueOf(x);
     }
 
 
@@ -40,6 +55,9 @@ public class GUIProcess {
 
     public String getBurst() {
         return burst;
+    }
+    public int getBurstInt() {
+        return Integer.parseInt(burst);
     }
 
     public String getPriority() {
@@ -67,4 +85,6 @@ public class GUIProcess {
             return false;
         }
     }
+
+
 }

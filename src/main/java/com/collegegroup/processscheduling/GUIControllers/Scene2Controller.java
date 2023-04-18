@@ -22,15 +22,8 @@ public class Scene2Controller implements Initializable {
     private TextField textField;
     @FXML
     private ChoiceBox<String> choiceBox = new ChoiceBox<String>();
-    private final String[] schedulerTypes = {"Round robin", "FCFS", "SJF (preemptive)",
-            "SJF (non-preemptive)","priority (preemptive)","priority (non-preemptive)"};
+    private final String[] schedulerTypes = {"Round Robin", "FC-FS", "SJF" ,"Priority based"};
 
-
-    private Stage stage;
-
-    private Scene scene;
-
-    private Parent root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,19 +36,15 @@ public class Scene2Controller implements Initializable {
         String currentChoice = choiceBox.getValue();
 
         Parent tableViewParent = null;
-        if (currentChoice.equals("FCFS") ||
-            currentChoice.equals("SJF (preemptive)") ||
-            currentChoice.equals("SJF (non-preemptive)")) {
-            tableViewParent = FXMLLoader.load(getClass().getResource("FCFS_SJF.fxml"));
+        switch (currentChoice) {
+            case "FC-FS" -> tableViewParent = FXMLLoader.load(getClass().getResource("FCFS.fxml"));
+            case "SJF" -> tableViewParent = FXMLLoader.load(getClass().getResource("SJF.fxml"));
+            case "Round Robin" -> tableViewParent = FXMLLoader.load(getClass().getResource("RoundRobin.fxml"));
+            case "Priority based" -> tableViewParent = FXMLLoader.load(getClass().getResource("Priority.fxml"));
+            default -> {
+                return;
+            }
         }
-        else if (currentChoice.equals("Round robin"))
-        {
-            tableViewParent = FXMLLoader.load(getClass().getResource("RoundRobin.fxml"));
-        } else if (currentChoice.equals("priority (preemptive)")||currentChoice.equals("priority (non-preemptive)")) {
-            tableViewParent = FXMLLoader.load(getClass().getResource("Priority.fxml"));
-        }
-        else
-            return;
 
 
         Scene tableViewScene = new Scene(tableViewParent);
