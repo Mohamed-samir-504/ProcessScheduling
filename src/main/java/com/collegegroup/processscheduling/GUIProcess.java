@@ -7,13 +7,14 @@ public class GUIProcess {
     private String burst;
     private String arrivalTime;
     private String priority;
-    private int startTime = 0;
-    private int endTime = 0;
+    private int startTime ;
+    private int endTime ;
 
     public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
+        this.startTime = Integer.parseInt(arrivalTime);
         this.priority = "0";
     }
 
@@ -43,6 +44,7 @@ public class GUIProcess {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
+        this.startTime = Integer.parseInt(arrivalTime);
         this.priority = priority;
     }
 
@@ -59,6 +61,7 @@ public class GUIProcess {
     public int getBurstInt() {
         return Integer.parseInt(burst);
     }
+    public int getArrivalTimeInt(){ return Integer.parseInt(arrivalTime);}
 
     public String getPriority() {
         return priority;

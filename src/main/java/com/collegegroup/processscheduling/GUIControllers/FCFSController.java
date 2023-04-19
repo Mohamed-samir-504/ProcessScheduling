@@ -79,9 +79,13 @@ public class FCFSController implements Initializable {
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("P1","5","4"));
-        gg.add(new GUIProcess("P2","5","4"));
-        sum = 10;
+        gg.add(new GUIProcess("P0","3","0"));
+        gg.add(new GUIProcess("P1","4","3"));
+        gg.add(new GUIProcess("P2","2","4"));
+        gg.add(new GUIProcess("P3","8","2"));
+        gg.add(new GUIProcess("P4","3","8"));
+        gg.add(new GUIProcess("P5","5","6"));
+        sum = 3+4+2+8+3+5;
         return gg;
     }
     @FXML

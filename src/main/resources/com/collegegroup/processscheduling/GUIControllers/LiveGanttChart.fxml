@@ -39,21 +39,21 @@
             <TableColumn fx:id="priorityColumn" prefWidth="81.0" text="Priority" />
         </columns>
       </TableView>
-      <Button layoutX="917.0" layoutY="629.0" mnemonicParsing="false" text="Insert" />
-      <Button layoutX="986.0" layoutY="629.0" mnemonicParsing="false" text="Delete" />
-      <TextField layoutX="903.0" layoutY="467.0" />
-      <TextField layoutX="903.0" layoutY="501.0" />
-      <TextField layoutX="902.0" layoutY="539.0" />
+      <Button layoutX="917.0" layoutY="629.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
+      <Button layoutX="986.0" layoutY="629.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
+      <TextField fx:id="pidTextField" layoutX="903.0" layoutY="467.0" promptText="PID" />
+      <TextField fx:id="burstTextField" layoutX="903.0" layoutY="501.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" layoutX="902.0" layoutY="539.0" promptText="Arrival Time" />
       <Text layoutX="323.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Feed" />
       <Text layoutX="936.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process Table" wrappingWidth="72.13671875" />
       <Text layoutX="291.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:" />
-      <Text fx:id="currentTime" layoutX="330.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="currentTimeText" layoutX="330.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text layoutX="360.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds" />
       <Text layoutX="201.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Waiting Time:" />
-      <Text fx:id="avgWaiting" layoutX="329.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="avgWaitingTimeText" layoutX="329.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text layoutX="359.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds" />
       <Text layoutX="179.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Turnaround Time:" />
-      <Text fx:id="avgTurnAround" layoutX="329.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="avgTurnAroundText" layoutX="329.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
       <Text layoutX="359.0" layoutY="702.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seconds" />
    </children>
 </AnchorPane>
