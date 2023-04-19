@@ -10,21 +10,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.Scene2Controller">
    <children>
-      <ChoiceBox fx:id="choiceBox" layoutX="318.0" layoutY="112.0" prefHeight="26.0" prefWidth="176.0" />
-      <Button layoutX="372.0" layoutY="487.0" mnemonicParsing="false" onAction="#onGo" prefHeight="44.0" prefWidth="57.0" text="Go">
+      <ChoiceBox fx:id="choiceBox" layoutX="429.0" layoutY="140.0" prefHeight="0.0" prefWidth="137.0" />
+      <Button layoutX="362.0" layoutY="534.0" mnemonicParsing="false" onAction="#onGo" prefHeight="33.0" prefWidth="53.0" text="Go">
          <font>
-            <Font size="20.0" />
+            <Font name="Open Sans SemiCondensed Medium" size="20.0" />
          </font>
       </Button>
-      <Text layoutX="241.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a scheduling algorithm" wrappingWidth="318.44140625">
+      <Text layoutX="120.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select a scheduling algorithm" wrappingWidth="268.44140625">
          <font>
-            <Font name="Open Sans SemiCondensed ExtraBold" size="23.0" />
+            <Font name="Open Sans SemiCondensed Light" size="19.0" />
          </font>
       </Text>
-      <ImageView fitHeight="308.0" fitWidth="337.0" layoutX="246.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="223.0" fitWidth="258.0" layoutX="277.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Scene2Pic.png" />
          </image>
       </ImageView>
+      <Text layoutX="128.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process Scheduling visualization using Gantt Chart" wrappingWidth="543.44140625">
+         <font>
+            <Font name="Open Sans SemiCondensed ExtraBold" size="23.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
