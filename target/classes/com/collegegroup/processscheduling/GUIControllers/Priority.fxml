@@ -32,4 +32,5 @@
       <TextField fx:id="arrivalTimeTextField" layoutX="429.0" layoutY="367.0" promptText="Arrival Time" />
    <TextField fx:id="priorityTextField" layoutX="609.0" layoutY="367.0" promptText="Priority" />
    <CheckBox fx:id="preemptive" layoutX="360.0" layoutY="420.0" mnemonicParsing="false" text="Preemptive" />
+   <CheckBox fx:id="live" layoutX="237.0" layoutY="420.0" mnemonicParsing="false" text="Live" />
 </AnchorPane>

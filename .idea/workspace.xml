@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="added FCFS live">
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="some static">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_2_51_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_2_51_AM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByPriority_NP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByPriority_NP.java" afterDir="false" />
@@ -203,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681913883614</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="some static">
+      <created>1681935210551</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681935210551</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,7 +230,8 @@
     <MESSAGE value="added GanttChart screen" />
     <MESSAGE value="Refactorization" />
     <MESSAGE value="added FCFS live" />
-    <option name="LAST_COMMIT_MESSAGE" value="added FCFS live" />
+    <MESSAGE value="some static" />
+    <option name="LAST_COMMIT_MESSAGE" value="some static" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
