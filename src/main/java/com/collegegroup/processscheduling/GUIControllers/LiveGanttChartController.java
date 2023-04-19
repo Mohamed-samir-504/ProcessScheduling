@@ -117,7 +117,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
-                currentProcess.setEndTime(currentTimeCounter);
+                currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByFCFS());
                 if(tableView.getItems().size()>0)
