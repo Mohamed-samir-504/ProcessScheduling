@@ -35,6 +35,7 @@ public class SJFController implements Initializable {
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML
     FlowPane hbox;
+    @FXML private CheckBox live;
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
     @FXML private TextField burstTextField;
@@ -91,29 +92,37 @@ public class SJFController implements Initializable {
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("3","5","4"));
-        gg.add(new GUIProcess("55","5","4"));
-        sum = 255;
+        gg.add(new GUIProcess("1","3","0"));
+        gg.add(new GUIProcess("2","1","0"));
+        gg.add(new GUIProcess("3","5","1"));
+        gg.add(new GUIProcess("4","2","1"));
+        gg.add(new GUIProcess("5","1","2"));
+        sum = 3+5+2+1;
         return gg;
     }
 
 
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
-        root = loader.load();
-        GanttChartController gc = loader.getController();
-        //Data must be sorted here before being passed
-
-        if(preemptive.isSelected())
+        Stage stage;
+        Scene scene;
+        Parent root;
+        if(live.isSelected())
         {
-            //TODO()
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LiveGanttChart.fxml"));
+            root = loader.load();
+            LiveGanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"SJF");
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
+            root = loader.load();
+            GanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"SJF");
         }
 
-        else tableView.getItems().sort(new SortBySJF_NP());
 
-
-        gc.init(tableView.getItems(), sum);
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

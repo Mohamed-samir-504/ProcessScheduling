@@ -1,6 +1,8 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
 import com.collegegroup.processscheduling.Comparators.SortByFCFS;
+import com.collegegroup.processscheduling.Comparators.SortByPriority_NP;
+import com.collegegroup.processscheduling.Comparators.SortBySJF_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -101,7 +103,7 @@ public class LiveGanttChartController {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
             currentTimeText.setText(Integer.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
-            iterations++;
+
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
                 currentTimeCounter++;
@@ -139,13 +141,93 @@ public class LiveGanttChartController {
     }
 
     private void SJF()
-    {}
+    {
+        tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
+            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            GUIProcess currentProcess = tableView.getItems().get(0);
+
+            if(currentTimeCounter<currentProcess.getArrivalTimeInt())
+            {
+                currentTimeCounter++;
+                timeDrawStart++;
+                return;
+            }
+            hbox.getChildren().add(liveProcessFactory(currentProcess, currentTimeCounter));
+            if(currentProcess.getBurstInt()>0)
+            {
+                currentProcess.setBurst(currentProcess.getBurstInt()-1);
+                tableView.refresh();
+            }
+
+            if(currentProcess.getBurstInt()==0)
+            {   processedItems.add(currentProcess);
+                currentProcess.setEndTime(currentTimeCounter+1);
+                tableView.getItems().remove(currentProcess);
+                tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter+1));
+                if(tableView.getItems().size()>0)
+                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+            }
+            avgTurnAroundText.setText(avgTurnaround());
+            avgWaitingTimeText.setText(avgWaiting());
+            currentTimeCounter++;
+        }));
+        timeline.setCycleCount(totalTime+tableView.getItems().get(0).getArrivalTimeInt());
+        timeline.play();
+        timeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                hbox.getChildren().add(rightEdge(currentTimeCounter));
+                tableView.getItems().clear();
+            }
+        });
+    }
     private void SJF_P()
     {}
     private void roundRobin()
     {}
     private void priority()
-    {}
+    {
+        tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
+            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            GUIProcess currentProcess = tableView.getItems().get(0);
+
+            if(currentTimeCounter<currentProcess.getArrivalTimeInt())
+            {
+                currentTimeCounter++;
+                timeDrawStart++;
+                return;
+            }
+            hbox.getChildren().add(liveProcessFactory(currentProcess, currentTimeCounter));
+            if(currentProcess.getBurstInt()>0)
+            {
+                currentProcess.setBurst(currentProcess.getBurstInt()-1);
+                tableView.refresh();
+            }
+
+            if(currentProcess.getBurstInt()==0)
+            {   processedItems.add(currentProcess);
+                currentProcess.setEndTime(currentTimeCounter+1);
+                tableView.getItems().remove(currentProcess);
+                tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
+                if(tableView.getItems().size()>0)
+                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+            }
+            avgTurnAroundText.setText(avgTurnaround());
+            avgWaitingTimeText.setText(avgWaiting());
+            currentTimeCounter++;
+        }));
+        timeline.setCycleCount(totalTime+tableView.getItems().get(0).getArrivalTimeInt());
+        timeline.play();
+        timeline.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                hbox.getChildren().add(rightEdge(currentTimeCounter));
+                tableView.getItems().clear();
+            }
+        });
+    }
     private void priority_P()
     {}
     private String avgWaiting()

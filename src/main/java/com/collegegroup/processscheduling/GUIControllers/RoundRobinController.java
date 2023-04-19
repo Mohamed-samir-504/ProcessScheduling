@@ -88,7 +88,7 @@ public class RoundRobinController implements Initializable {
         GanttChartController gc = loader.getController();
         //Data must be sorted here before being passed
         //TODO()
-        gc.init(tableView.getItems(), sum);
+        gc.init(tableView.getItems(), sum,"RoundRobin");
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ import java.util.ResourceBundle;
 
 
 @SuppressWarnings("ALL")
-public class PriorityController implements Initializable {
+public class PriorityController implements Initializable{
 
     //configure the table
     @FXML private TableView<GUIProcess> tableView;
@@ -36,13 +37,14 @@ public class PriorityController implements Initializable {
     @FXML private TextField burstTextField;
     @FXML private TextField arrivalTimeTextField;
     @FXML private TextField priorityTextField;
+    @FXML private CheckBox live;
     int sum = 0;
     Stage stage;
     Scene scene;
     Parent root;
 
 
-    @Override
+
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
         //set up the columns in the table
@@ -52,9 +54,13 @@ public class PriorityController implements Initializable {
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
         //load dummy data
         tableView.setItems(lol());
+        //Set rows to be Editable
+        tableView.setEditable(true);
+        pidColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        burstColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
     }
     @FXML
     public void insertButtonPushed()
@@ -84,26 +90,35 @@ public class PriorityController implements Initializable {
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("3","53","4","5"));
-        gg.add(new GUIProcess("55","54","4","7"));
-        gg.add(new GUIProcess("45","45","4","3"));
-        gg.add(new GUIProcess("565","200","4","1"));
-        sum = 53+53+45+200;
+        gg.add(new GUIProcess("1","1","0","2"));
+        gg.add(new GUIProcess("2","4","0","1"));
+        gg.add(new GUIProcess("3","2","1","1"));
+        gg.add(new GUIProcess("4","3","1","3"));
+        sum = 1+4+2+3;
         return gg;
     }
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
-        root = loader.load();
-        GanttChartController gc = loader.getController();
-        //Data must be sorted here before being passed
-        if(preemptive.isSelected())
+        Stage stage;
+        Scene scene;
+        Parent root;
+        if(live.isSelected())
         {
-            //TODO()
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LiveGanttChart.fxml"));
+            root = loader.load();
+            LiveGanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"Priority");
         }
-        else tableView.getItems().sort(new SortByPriority_NP());
-        gc.init(tableView.getItems(), sum);
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
+            root = loader.load();
+            GanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"Priority");
+        }
+
+
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
