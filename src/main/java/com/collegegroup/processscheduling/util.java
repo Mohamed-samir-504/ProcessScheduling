@@ -48,10 +48,10 @@ public abstract class util {
         return vBox;
     }
 
-    public static VBox liveProcessFactory(GUIProcess s, int currentTime)
+    public static VBox liveProcessFactory(GUIProcess s, int currentTime,int quantum)
     {
         String name = s.getPid();
-        Rectangle newProcess = new Rectangle( 50,50);
+        Rectangle newProcess = new Rectangle( 50*quantum,50);
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
         StackPane stack = new StackPane();

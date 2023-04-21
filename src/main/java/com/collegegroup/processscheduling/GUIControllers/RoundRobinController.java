@@ -25,8 +25,8 @@ public class RoundRobinController implements Initializable {
     @FXML private TableColumn<GUIProcess, String> pidColumn;
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
-    String quantum;
-
+    @FXML private CheckBox preemptive, live;
+    String quantum = "1";
 
     //These instance variables are used to create new Person objects
     @FXML private TextField pidTextField;
@@ -55,13 +55,14 @@ public class RoundRobinController implements Initializable {
         arrivalTimeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        quantumTextField.setText("1");
 
     }
     @FXML
     public void insertButtonPushed()
     {
         GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
-        if(newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isNotEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
@@ -79,27 +80,33 @@ public class RoundRobinController implements Initializable {
         }
     }
 
-    //TODO()
     @FXML
     public void drawButtonPushed(ActionEvent event) throws IOException {
-        quantum = quantumTextField.getText();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
-        root = loader.load();
-        GanttChartController gc = loader.getController();
-        //Data must be sorted here before being passed
-        //TODO()
-        gc.init(tableView.getItems(), sum,"RoundRobin");
+        Stage stage;
+        Scene scene;
+        Parent root;
+        if(live.isSelected())
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LiveGanttChart.fxml"));
+            root = loader.load();
+            LiveGanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"RoundRobin",quantumTextField.getText());
+
+        }
+        else
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
+            root = loader.load();
+            GanttChartController gc = loader.getController();
+            gc.init(tableView.getItems(), sum,"RoundRobin",quantumTextField.getText());
+
+        }
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
     }
-
-
-
-
-
 
 
     //Create dummy data (to be removed)
@@ -109,6 +116,7 @@ public class RoundRobinController implements Initializable {
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
         gg.add(new GUIProcess("3","5","4"));
         gg.add(new GUIProcess("55","5","4"));
+        sum = 10;
         return gg;
     }
 }

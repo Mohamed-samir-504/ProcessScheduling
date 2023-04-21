@@ -32,7 +32,7 @@ public class GanttChartController {
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
     @FXML private TableView<GUIProcess> tableView;
-    private String mode;
+    private String mode,quantum;
     private int currentTimeCounter;
 
 
@@ -91,7 +91,6 @@ public class GanttChartController {
             currentTimeCounter += Integer.parseInt(current.getBurst());
             tableView.getItems().remove(current);
             tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
-
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
     }
@@ -119,4 +118,19 @@ public class GanttChartController {
     private void priority_P()
     {}
 
+    public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
+        hbox.getChildren().clear();
+        this.quantum = quantum;
+        currentTimeCounter = 0;
+        tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+        while (!tableView.getItems().isEmpty())
+        {
+            GUIProcess current = tableView.getItems().get(0);
+            hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
+            currentTimeCounter += Integer.parseInt(current.getBurst());
+            tableView.getItems().remove(current);
+            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+        }
+        hbox.getChildren().add(rightEdge(currentTimeCounter));
+    }
 }

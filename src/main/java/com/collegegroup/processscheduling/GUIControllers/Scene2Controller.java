@@ -24,7 +24,6 @@ public class Scene2Controller implements Initializable {
     private ChoiceBox<String> choiceBox = new ChoiceBox<String>();
     private final String[] schedulerTypes = {"Round Robin", "FC-FS", "SJF" ,"Priority based"};
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         choiceBox.getItems().addAll(schedulerTypes);
@@ -46,9 +45,7 @@ public class Scene2Controller implements Initializable {
             }
         }
 
-
         Scene tableViewScene = new Scene(tableViewParent);
-        //This line gets the Stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(tableViewScene);

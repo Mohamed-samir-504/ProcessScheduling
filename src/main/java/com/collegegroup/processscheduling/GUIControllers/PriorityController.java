@@ -1,6 +1,5 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
-import com.collegegroup.processscheduling.Comparators.SortByPriority_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,8 +65,7 @@ public class PriorityController implements Initializable{
     public void insertButtonPushed()
     {
         GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText(),priorityTextField.getText());
-
-        if(newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isNotEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
@@ -108,17 +106,21 @@ public class PriorityController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LiveGanttChart.fxml"));
             root = loader.load();
             LiveGanttChartController gc = loader.getController();
+            if(!preemptive.isSelected())
             gc.init(tableView.getItems(), sum,"Priority");
+            else
+                gc.init(tableView.getItems(), sum,"Priority_P");
         }
         else
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
             root = loader.load();
             GanttChartController gc = loader.getController();
-            gc.init(tableView.getItems(), sum,"Priority");
+            if(!preemptive.isSelected())
+                gc.init(tableView.getItems(), sum,"Priority");
+            else
+                gc.init(tableView.getItems(), sum,"Priority_P");
         }
-
-
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

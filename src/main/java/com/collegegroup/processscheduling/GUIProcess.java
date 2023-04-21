@@ -71,7 +71,7 @@ public class GUIProcess {
         return arrivalTime;
     }
 
-    public boolean isEmpty()
+    public boolean isNotEmpty()
     {
         return !burst.isBlank() && !arrivalTime.isBlank();
     }

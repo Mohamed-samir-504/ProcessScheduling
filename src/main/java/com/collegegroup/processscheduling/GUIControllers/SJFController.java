@@ -1,6 +1,5 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
-import com.collegegroup.processscheduling.Comparators.SortBySJF_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,11 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -70,7 +64,7 @@ public class SJFController implements Initializable {
     public void insertButtonPushed()
     {
         GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
-        if(newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isNotEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
@@ -101,7 +95,6 @@ public class SJFController implements Initializable {
         return gg;
     }
 
-
     @FXML
     public void onDrawClick(ActionEvent event) throws IOException {
         Stage stage;
@@ -112,17 +105,20 @@ public class SJFController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LiveGanttChart.fxml"));
             root = loader.load();
             LiveGanttChartController gc = loader.getController();
+            if(!preemptive.isSelected())
             gc.init(tableView.getItems(), sum,"SJF");
+            else gc.init(tableView.getItems(), sum,"SJF_P");
         }
         else
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
             root = loader.load();
             GanttChartController gc = loader.getController();
-            gc.init(tableView.getItems(), sum,"SJF");
+            if(!preemptive.isSelected())
+                gc.init(tableView.getItems(), sum,"SJF");
+            else
+                gc.init(tableView.getItems(), sum,"SJF_P");
         }
-
-
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

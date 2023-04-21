@@ -1,8 +1,6 @@
 package com.collegegroup.processscheduling.GUIControllers;
 
-import com.collegegroup.processscheduling.Comparators.SortByFCFS;
 import com.collegegroup.processscheduling.GUIProcess;
-import com.collegegroup.processscheduling.Process;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,10 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.ResourceBundle;
-import static com.collegegroup.processscheduling.util.*;
 
 public class FCFSController implements Initializable {
 
@@ -57,7 +52,7 @@ public class FCFSController implements Initializable {
     {
         GUIProcess newProcess = new GUIProcess(pidTextField.getText(),burstTextField.getText(),arrivalTimeTextField.getText());
 
-        if(newProcess.isEmpty() && newProcess.isValid()) {
+        if(newProcess.isNotEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
             sum+=Integer.parseInt(burstTextField.getText());
         }
