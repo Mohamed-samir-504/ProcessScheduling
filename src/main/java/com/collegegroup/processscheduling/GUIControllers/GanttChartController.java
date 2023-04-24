@@ -70,6 +70,7 @@ public class GanttChartController {
     {
         hbox.getChildren().clear();
         currentTimeCounter = 0;
+        tableView.getItems().sort(new SortByFCFS());
         for (GUIProcess s : processList)
         {
             hbox.getChildren().add(processFactory(s,Integer.parseInt(s.getBurst()), currentTimeCounter,totalTime));

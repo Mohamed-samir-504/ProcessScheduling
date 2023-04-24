@@ -58,6 +58,7 @@ public class LiveGanttChartController {
          if(mode.equals("RoundRobin")) roundRobin();
     }
 
+
     public void init(ObservableList<GUIProcess> x, int time, String mode)
     {
         //get the process list and the current time
@@ -109,6 +110,8 @@ public class LiveGanttChartController {
         }
 
     }
+
+
 
     private void FCFS()
     {
@@ -270,7 +273,7 @@ public class LiveGanttChartController {
         itr = 0;
         ArrayList<GUIProcess> arrived = new ArrayList<>();
 
-         timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
+         timeline = new Timeline(new KeyFrame(Duration.seconds(Double.parseDouble(quantum)), event -> {
              currentTimeText.setText(Integer.toString(currentTimeCounter));
              tableView.refresh();
              if(tableView.getItems().size()==0)
@@ -288,18 +291,19 @@ public class LiveGanttChartController {
 
              hbox.getChildren().add(liveProcessFactory(currentProcess,currentTimeCounter,Integer.parseInt(quantum)));
 
-             currentTimeCounter++;
+             currentTimeCounter+=Integer.parseInt(quantum);
 
 
              if(currentProcess.getBurstInt()>0)
              {
-                 currentProcess.setBurst(currentProcess.getBurstInt()-1);
+                 currentProcess.setBurst(currentProcess.getBurstInt()-Integer.parseInt(quantum));
              }
 
-             if(currentProcess.getBurstInt()==0)
+             if(currentProcess.getBurstInt()<=0)
              {
                  tableView.getItems().remove(currentProcess);
                  arrived.remove(currentProcess);
+
              }
              arrived.sort(new SortByFCFS());
 
@@ -422,6 +426,8 @@ public class LiveGanttChartController {
             }
         });
     }
+
+
     private String avgWaiting()
     {
         double sum = 0;
