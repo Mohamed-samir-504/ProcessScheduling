@@ -20,6 +20,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import static com.collegegroup.processscheduling.util.*;
 
@@ -29,6 +30,7 @@ public class LiveGanttChartController {
 
     @FXML HBox hbox;
     private int totalTime = 0, scale;
+    private Hashtable<GUIProcess, Integer>hash;
     @FXML private TableColumn<GUIProcess, String> pidColumn;
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
@@ -73,26 +75,15 @@ public class LiveGanttChartController {
         tableView.setItems(processList);
         //log of the items used for calculations
         processedItems = new ArrayList<>();
+        hash = new Hashtable<>();
     }
 
     public void init(ObservableList<GUIProcess> x, int time, String mode, String quantum)
     {
         //get the process list and the current time
-        processList = x;
-        totalTime = time;
-        scale = time;
-        this.mode = mode;
+        init(x,time,mode);
         this.quantum = quantum;
-        hbox.setSpacing(0);
-        //set the columns of the table to read correct attributes
-        pidColumn.setCellValueFactory(new PropertyValueFactory<>("pid"));
-        burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
-        arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
-        priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
-        //fill the table with the list saved from the last scene.
-        tableView.setItems(processList);
-        //log of the items used for calculations
-        processedItems = new ArrayList<>();
+
     }
 
 
@@ -214,8 +205,10 @@ public class LiveGanttChartController {
          timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
              if(tableView.getItems().size()==0)
              {finish(); return;}
+            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
             currentTimeText.setText(Integer.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
+
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
@@ -223,6 +216,21 @@ public class LiveGanttChartController {
                 timeDrawStart++;
                 return;
             }
+            if(hash.containsKey(currentProcess)){
+                if(currentTimeCounter-hash.get(currentProcess) == 0){
+                    hash.replace(currentProcess,currentTimeCounter+1);
+                }
+                else{
+                    int p = hash.get(currentProcess);
+                    currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
+                    hash.replace(currentProcess,currentTimeCounter+1);
+                }
+
+            }
+            else{
+                hash.put(currentProcess,currentTimeCounter+1);
+            }
+
             hbox.getChildren().add(liveProcessFactory(currentProcess, currentTimeCounter,1));
             if(currentProcess.getBurstInt()>0)
             {
@@ -232,15 +240,16 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                hash.remove(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter+1));
-                if(tableView.getItems().size()>0)
+                if(tableView.getItems().size()>0 && !hash.containsKey(tableView.getItems().get(0)))
                     tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
-            avgTurnAroundText.setText(avgTurnaround());
-            avgWaitingTimeText.setText(avgWaiting());
-            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+
+
+
             currentTimeCounter++;
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -249,6 +258,8 @@ public class LiveGanttChartController {
             @Override
             public void handle(ActionEvent event) {
                 hbox.getChildren().add(rightEdge(currentTimeCounter));
+                avgWaitingTimeText.setText(avgWaiting());
+                avgTurnAroundText.setText(avgTurnaround());
                 tableView.getItems().clear();
             }
         });
@@ -357,6 +368,7 @@ public class LiveGanttChartController {
          timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
              if(tableView.getItems().size()==0)
              {finish(); return;}
+            tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
             currentTimeText.setText(Integer.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
@@ -366,7 +378,21 @@ public class LiveGanttChartController {
                 timeDrawStart++;
                 return;
             }
-            hbox.getChildren().add(liveProcessFactory(currentProcess, currentTimeCounter,50));
+             if(hash.containsKey(currentProcess)){
+                 if(currentTimeCounter-hash.get(currentProcess) == 0){
+                     hash.replace(currentProcess,currentTimeCounter+1);
+                 }
+                 else{
+                     int p = hash.get(currentProcess);
+                     currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
+                     hash.replace(currentProcess,currentTimeCounter+1);
+                 }
+
+             }
+             else{
+                 hash.put(currentProcess,currentTimeCounter+1);
+             }
+            hbox.getChildren().add(liveProcessFactory(currentProcess, currentTimeCounter,1));
             if(currentProcess.getBurstInt()>0)
             {
                 currentProcess.setBurst(currentProcess.getBurstInt()-1);
@@ -378,11 +404,10 @@ public class LiveGanttChartController {
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
-                if(tableView.getItems().size()>0)
+                if(tableView.getItems().size()>0 && !hash.containsKey(tableView.getItems().get(0)))
                     tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
-            avgTurnAroundText.setText(avgTurnaround());
-            //TODO() AVGWaitingTimePreemptive
+
             tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
             currentTimeCounter++;
         }));
@@ -392,6 +417,8 @@ public class LiveGanttChartController {
             @Override
             public void handle(ActionEvent event) {
                 hbox.getChildren().add(rightEdge(currentTimeCounter));
+                avgWaitingTimeText.setText(avgWaiting());
+                avgTurnAroundText.setText(avgTurnaround());
                 tableView.getItems().clear();
             }
         });
@@ -401,7 +428,7 @@ public class LiveGanttChartController {
         double sum = 0;
         for(GUIProcess s : processedItems)
         {
-            sum += (s.getStartTime()-s.getArrivalTimeInt());
+            sum += (s.getStartTime()-s.getArrivalTimeInt()+ s.getX());
         }
        return Double.toString(sum /= processedItems.size()).formatted("%2lf");
     }
@@ -410,7 +437,7 @@ public class LiveGanttChartController {
         double sum = 0;
         for(GUIProcess s : processedItems)
         {
-            sum += (s.getEndTime()-s.getArrivalTimeInt());
+            sum += (s.getEndTime()-s.getArrivalTimeInt() );
         }
         return Double.toString(sum /= processedItems.size()).formatted("%2lf");
 

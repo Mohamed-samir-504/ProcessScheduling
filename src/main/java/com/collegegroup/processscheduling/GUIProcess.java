@@ -9,6 +9,7 @@ public class GUIProcess {
     private String priority;
     private int startTime ;
     private int endTime ;
+    private int x;
 
     public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
@@ -16,6 +17,7 @@ public class GUIProcess {
         this.arrivalTime = arrivalTime;
         this.startTime = Integer.parseInt(arrivalTime);
         this.priority = "0";
+        this.x = 0;
     }
 
     public int getStartTime() {
@@ -69,6 +71,14 @@ public class GUIProcess {
 
     public String getArrivalTime() {
         return arrivalTime;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
     }
 
     public boolean isNotEmpty()
