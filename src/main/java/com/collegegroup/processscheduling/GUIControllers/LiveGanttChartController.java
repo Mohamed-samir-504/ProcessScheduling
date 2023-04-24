@@ -279,7 +279,6 @@ public class LiveGanttChartController {
              if(tableView.getItems().size()==0)
              {
                  finish();
-
                  return;
              }
 
@@ -288,19 +287,42 @@ public class LiveGanttChartController {
              itr = (itr+1)%arrived.size();
 
              var currentProcess = arrived.get(itr);
+             int min = Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
 
-             hbox.getChildren().add(liveProcessFactory(currentProcess,currentTimeCounter,Integer.parseInt(quantum)));
+             timeline.setRate(Math.max(1,Double.parseDouble(quantum)/currentProcess.getBurstInt()));
 
-             currentTimeCounter+=Integer.parseInt(quantum);
+             if(hash.containsKey(currentProcess)){
+                 if(currentTimeCounter-hash.get(currentProcess) == 0){
+                     hash.replace(currentProcess,currentTimeCounter+min);
+                 }
+                 else{
+                     int p = hash.get(currentProcess);
+                     currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
+                     hash.replace(currentProcess,currentTimeCounter+min);
+                 }
+
+             }
+             else{
+                 hash.put(currentProcess,currentTimeCounter+min);
+                 currentProcess.setStartTime(currentTimeCounter);
+
+             }
+             hbox.getChildren().add(liveProcessFactory(currentProcess,currentTimeCounter, min));
+
+             currentTimeCounter+=Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
 
 
              if(currentProcess.getBurstInt()>0)
              {
+
                  currentProcess.setBurst(currentProcess.getBurstInt()-Integer.parseInt(quantum));
              }
 
              if(currentProcess.getBurstInt()<=0)
              {
+                 processedItems.add(currentProcess);
+                 hash.remove(currentProcess);
+                 currentProcess.setEndTime(currentTimeCounter);
                  tableView.getItems().remove(currentProcess);
                  arrived.remove(currentProcess);
 
@@ -316,6 +338,8 @@ public class LiveGanttChartController {
             @Override
             public void handle(ActionEvent event) {
                 hbox.getChildren().add(rightEdge(currentTimeCounter));
+                avgWaitingTimeText.setText(avgWaiting());
+                avgTurnAroundText.setText(avgTurnaround());
                 tableView.getItems().clear();
             }
         });

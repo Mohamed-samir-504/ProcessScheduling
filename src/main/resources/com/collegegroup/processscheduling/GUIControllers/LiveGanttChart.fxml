@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="823.0" prefWidth="1178.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.LiveGanttChartController">
    <children>
-      <Text layoutX="334.0" layoutY="72.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Gantt Chart">
+      <Text layoutX="441.0" layoutY="72.0" nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Gantt Chart">
          <font>
             <Font name="Arial Black" size="33.0" />
          </font>
@@ -44,7 +44,7 @@
       <TextField fx:id="pidTextField" layoutX="903.0" layoutY="467.0" promptText="PID" />
       <TextField fx:id="burstTextField" layoutX="903.0" layoutY="501.0" promptText="Burst Time" />
       <TextField fx:id="arrivalTimeTextField" layoutX="902.0" layoutY="539.0" promptText="Arrival Time" />
-      <Text layoutX="323.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Feed" />
+      <Text layoutX="357.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Feed" />
       <Text layoutX="936.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process Table" wrappingWidth="72.13671875" />
       <Text layoutX="291.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:" />
       <Text fx:id="currentTimeText" layoutX="330.0" layoutY="644.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
