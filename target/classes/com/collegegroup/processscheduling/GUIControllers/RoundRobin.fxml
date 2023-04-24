@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -22,11 +23,12 @@
              <TableColumn fx:id="arrivalTimeColumn" prefWidth="91.0" text="Arrival Time" />
          </columns>
      </TableView>
-      <TextField fx:id="pidTextField" layoutX="101.0" layoutY="372.0" prefHeight="25.0" prefWidth="153.0" promptText="PID" />
-      <TextField fx:id="burstTextField" layoutX="334.0" layoutY="372.0" promptText="Burst Time" />
-      <TextField fx:id="arrivalTimeTextField" layoutX="541.0" layoutY="372.0" promptText="Arrival Time" />
-       <Button layoutX="172.0" layoutY="493.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="33.0" prefWidth="80.0" text="Insert" />
-       <Button layoutX="569.0" layoutY="490.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="39.0" prefWidth="92.0" text="Delete" />
-       <Button layoutX="354.0" layoutY="490.0" mnemonicParsing="false" onAction="#drawButtonPushed" prefHeight="39.0" prefWidth="108.0" text="Draw Gantt Chart" />
-   <TextField fx:id="quantumTextField" layoutX="334.0" layoutY="440.0" promptText="Time Quantum" />
+      <TextField fx:id="pidTextField" layoutX="83.0" layoutY="372.0" prefHeight="25.0" prefWidth="153.0" promptText="PID" />
+      <TextField fx:id="burstTextField" layoutX="251.0" layoutY="372.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" layoutX="421.0" layoutY="372.0" promptText="Arrival Time" />
+       <Button layoutX="159.0" layoutY="507.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="33.0" prefWidth="80.0" text="Insert" />
+       <Button layoutX="570.0" layoutY="507.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="39.0" prefWidth="92.0" text="Delete" />
+       <Button layoutX="346.0" layoutY="507.0" mnemonicParsing="false" onAction="#drawButtonPushed" prefHeight="39.0" prefWidth="108.0" text="Draw Gantt Chart" />
+   <TextField fx:id="quantumTextField" layoutX="588.0" layoutY="372.0" promptText="Time Quantum" />
+   <CheckBox fx:id="live" layoutX="364.0" layoutY="439.0" mnemonicParsing="false" text="Live" />
 </AnchorPane>
