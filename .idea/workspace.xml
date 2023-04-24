@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="waiting/turnaround in pree">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" afterDir="false" />
-    </list>
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
