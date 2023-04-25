@@ -10,6 +10,17 @@ public class Process {
         this.Arrival=arrival;
         this.burst=burst;
         this.priority=priority;
+        this.ID = Integer.parseInt(pid);
+//        this.start = startTime;
+//        this.end = endTime;
+    }
+
+    public Process(Process process) {
+        this.pid=process.pid;
+        this.Arrival=process.getArrival();
+        this.burst=process.burst;
+        this.priority=process.priority;
+        this.ID = Integer.parseInt(process.pid);
     }
 
     public int getID() {

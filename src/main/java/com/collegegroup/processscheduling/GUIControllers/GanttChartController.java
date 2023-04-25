@@ -4,20 +4,20 @@ import com.collegegroup.processscheduling.Comparators.SortByFCFS;
 import com.collegegroup.processscheduling.Comparators.SortByPriority_NP;
 import com.collegegroup.processscheduling.Comparators.SortBySJF_NP;
 import com.collegegroup.processscheduling.GUIProcess;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import com.collegegroup.processscheduling.Process;
+import com.collegegroup.processscheduling.util;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.util.Duration;
+import javafx.scene.text.Text;
+
+import java.util.ArrayList;
 
 import static com.collegegroup.processscheduling.util.*;
-import static com.collegegroup.processscheduling.util.liveProcessFactory;
 
 //TODO() Add Priority Column in TableView
 
@@ -32,8 +32,12 @@ public class GanttChartController {
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
     @FXML private TableView<GUIProcess> tableView;
+
+    @FXML private Text avgTurnAroundText,avgWaitingTimeText;
     private String mode,quantum;
     private int currentTimeCounter;
+    private ArrayList<Process>arr;
+    ArrayList<Process>resultt;
 
 
     @FXML
@@ -64,6 +68,8 @@ public class GanttChartController {
 
         //fill the table with the list saved from the last scene.
         tableView.setItems(processList);
+        arr = new ArrayList<Process>();
+        resultt = new ArrayList<Process>();
     }
 
     private void FCFS()
@@ -95,10 +101,33 @@ public class GanttChartController {
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
     }
+
     private void SJF_P()
-    {}
+    {
+        arr = new ArrayList<>(tableView.getItems().size());
+        resultt = new ArrayList<>(tableView.getItems().size());
+
+        ObservableList<GUIProcess> list = tableView.getItems();
+        for(var item : list){
+            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+        }
+
+
+        resultt = modify(SJP_PREE(arr,false));
+
+
+        for(var current : resultt){
+            hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
+
+        }
+        hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
+
+
+    }
     private void roundRobin()
-    {}
+    {
+
+    }
     private void priority()
     {
         hbox.getChildren().clear();
@@ -117,7 +146,25 @@ public class GanttChartController {
         hbox.getChildren().add(rightEdge(currentTimeCounter));
     }
     private void priority_P()
-    {}
+    {
+        arr = new ArrayList<>(tableView.getItems().size());
+        resultt = new ArrayList<>(tableView.getItems().size());
+
+        ObservableList<GUIProcess> list = tableView.getItems();
+        for(var item : list){
+            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+        }
+
+
+        resultt = modify(SJP_PREE(arr,true));
+
+
+        for(var current : resultt){
+            hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
+
+        }
+        hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
+    }
 
     public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
         hbox.getChildren().clear();

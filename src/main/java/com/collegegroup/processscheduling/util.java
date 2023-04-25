@@ -6,16 +6,22 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public abstract class util {
 
     public static Process toProcess(GUIProcess guiProcess)
     {
-        int arrival,burst,priority;
+        int arrival,burst,priority,startTime,endTime;
         String pid;
         pid = guiProcess.getPid();
         arrival = Integer.parseInt(guiProcess.getArrivalTime());
         burst = Integer.parseInt(guiProcess.getBurst());
         priority = Integer.parseInt(guiProcess.getPriority());
+//        startTime = guiProcess.getStartTime();
+//        endTime = guiProcess.getEndTime();
         return new Process(pid,arrival,burst,priority);
     }
     public static GUIProcess toGUIProcess(Process process)
@@ -29,7 +35,7 @@ public abstract class util {
     public static VBox processFactory(GUIProcess s, int width, int currentTime , int totalTime)
     {
         String name = s.getPid();
-        Rectangle newProcess = new Rectangle((double) (width * 800) /totalTime + 20,50);
+        Rectangle newProcess = new Rectangle((double) (width * 555) /totalTime + 20,50);
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
         StackPane stack = new StackPane();
@@ -71,14 +77,71 @@ public abstract class util {
     }
 
 
+    public static ArrayList<Process> SJP_PREE(ArrayList<Process> processes, boolean priority)
+    {
+        Comparator<Process> comparator ;
+        if(priority) {
+            comparator = Comparator.comparing(Process::getArrival)
+                    .thenComparing(Process::getPriority).thenComparing(Process::getID);
+        }
+        else comparator= Comparator.comparing(Process::getArrival).thenComparing(Process::getBurst).thenComparing(Process::getID);
 
+        PriorityQueue<Process> pq = new PriorityQueue<>(comparator);
 
+        for (int i = 0; i < processes.size(); i++) {
+            pq.add(processes.get(i));
+//            /if (!p.isCompleted && p.arrivalTime <= currentTime) {
+//                pq.add(p);
+//            }/
+        }
 
+        int currentTime = 0;
+        ArrayList<Process> ganttChart = new ArrayList<>();
 
+        while(!pq.isEmpty()){
+            Process process = pq.poll();
+            if(currentTime>=process.getArrival()){
+                ganttChart.add(new Process(process));
+                process.burst--;
+            }
+            else ganttChart.add(new Process(Integer.toString(0),0,0,0));
+            currentTime++;
+            pq.clear();
+            for (int i = 0; i < processes.size(); i++) {
+                if(currentTime> processes.get(i).Arrival) processes.get(i).Arrival=currentTime;
+                if(processes.get(i).burst!=0)pq.add(processes.get(i));
+            }
 
+        }
 
+        return ganttChart;
+    }
 
+    public static ArrayList<Process> modify(ArrayList<Process> gc){
+        int last_id=0,start=0;
+        ArrayList<Process> gcFINAL = new ArrayList<Process>();
+        for (int i=0;i< gc.size()-1;i++)
+        {
+            if(gc.get(i).ID==0) {start=i+1; continue;}
 
+            if(gc.get(i).ID!=gc.get(i+1).ID)
+            {
+                int x=i+1;
+                gc.get(i).end=x;
+                gc.get(i).start=start;
+                gcFINAL.add(gc.get(i));
+                //System.out.println(gc.get(i).ID + " "+start+" "+x);
+                start=x;
+                gc.get(i).visited=true;
+            }
+        }
+        // System.out.println(gc.get(gc.size()-1).ID + " "+start+" "+ gc.size());
+        gc.get(gc.size()-1).start=start;
+        gc.get(gc.size()-1).end=gc.size();
+        gcFINAL.add(gc.get(gc.size()-1));
+
+        return gcFINAL;
+    }
 
 
 
