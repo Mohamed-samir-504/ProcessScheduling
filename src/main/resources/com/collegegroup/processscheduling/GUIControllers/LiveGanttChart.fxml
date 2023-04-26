@@ -19,12 +19,12 @@
          </font>
       </Text>
       <Button alignment="CENTER" layoutX="635.0" layoutY="603.0" mnemonicParsing="false" onAction="#onClickDraw" prefHeight="47.0" prefWidth="119.0" text="Draw" textOverrun="WORD_ELLIPSIS" />
-      <ScrollPane layoutX="157.0" layoutY="96.0" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="136.0" prefWidth="955.0" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="157.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="96.0">
+      <ScrollPane layoutX="136.0" layoutY="96.0" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="136.0" prefWidth="976.0" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="96.0">
          <padding>
             <Insets left="20.0" right="20.0" top="20.0" />
          </padding>
          <content>
-            <HBox fx:id="hbox" prefHeight="93.0" prefWidth="1093.0" />
+            <HBox fx:id="hbox" prefHeight="93.0" prefWidth="958.0" />
          </content>
       </ScrollPane>
       <TableView fx:id="tableView" layoutX="234.0" layoutY="286.0" prefHeight="283.0" prefWidth="344.0">
