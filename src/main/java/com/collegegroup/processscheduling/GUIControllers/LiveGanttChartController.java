@@ -161,8 +161,7 @@ public class LiveGanttChartController {
                 if(tableView.getItems().size()>0)
                     tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
-            avgTurnAroundText.setText(avgTurnaround());
-            avgWaitingTimeText.setText(avgWaiting());
+
             currentTimeCounter++;
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -171,6 +170,8 @@ public class LiveGanttChartController {
             @Override
             public void handle(ActionEvent event) {
                     hbox.getChildren().add(rightEdge(currentTimeCounter));
+                    avgTurnAroundText.setText(avgTurnaround());
+                    avgWaitingTimeText.setText(avgWaiting());
                     tableView.getItems().clear();
             }
         });
@@ -481,7 +482,10 @@ public class LiveGanttChartController {
         {
             sum += (s.getStartTime()-s.getArrivalTimeInt()+ s.getX());
         }
-       return Double.toString(sum /= processedItems.size()).formatted("%2lf");
+        sum /= processedItems.size();
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
     }
     private String avgTurnaround()
     {
@@ -490,7 +494,10 @@ public class LiveGanttChartController {
         {
             sum += (s.getEndTime()-s.getArrivalTimeInt() );
         }
-        return Double.toString(sum /= processedItems.size()).formatted("%2lf");
+        sum /= processedItems.size();
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
 
     }
 

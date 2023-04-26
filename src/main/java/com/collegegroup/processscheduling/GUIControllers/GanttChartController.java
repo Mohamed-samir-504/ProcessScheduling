@@ -31,13 +31,21 @@ public class GanttChartController {
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
+
+    @FXML private TableColumn<GUIProcess, String> pidColumn2;
+    @FXML private TableColumn<GUIProcess, String> startTimeColumn1;
+    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn2;
+    @FXML private TableColumn<GUIProcess, String> endTimeColumn1;
+
     @FXML private TableView<GUIProcess> tableView;
+    @FXML private TableView<GUIProcess> tableView2;
 
     @FXML private Text avgTurnAroundText,avgWaitingTimeText;
     private String mode,quantum;
     private int currentTimeCounter;
     private ArrayList<Process>arr;
     ArrayList<Process>resultt;
+    ArrayList<GUIProcess> processedItems;
 
 
     @FXML
@@ -66,29 +74,22 @@ public class GanttChartController {
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
+        pidColumn2.setCellValueFactory(new PropertyValueFactory<>("pid"));
+        arrivalTimeColumn2.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
+        startTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+        endTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+
         //fill the table with the list saved from the last scene.
         tableView.setItems(processList);
         arr = new ArrayList<Process>();
         resultt = new ArrayList<Process>();
+        processedItems = new ArrayList<>();
     }
 
-    private void FCFS()
-    {
+    public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
         hbox.getChildren().clear();
-        currentTimeCounter = 0;
-        tableView.getItems().sort(new SortByFCFS());
-        for (GUIProcess s : processList)
-        {
-            hbox.getChildren().add(processFactory(s,Integer.parseInt(s.getBurst()), currentTimeCounter,totalTime));
-            currentTimeCounter += Integer.parseInt(s.getBurst());
-        }
-        hbox.getChildren().add(rightEdge(currentTimeCounter));
-    }
-
-    private void SJF()
-    {
-        hbox.getChildren().clear();
-
+        processedItems = new ArrayList<>();
+        this.quantum = quantum;
         currentTimeCounter = 0;
         tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
         while (!tableView.getItems().isEmpty())
@@ -100,6 +101,48 @@ public class GanttChartController {
             tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
+    }
+
+    private void FCFS()
+    {
+        hbox.getChildren().clear();
+        currentTimeCounter = 0;
+        tableView.getItems().sort(new SortByFCFS());
+        for (GUIProcess s : processList)
+        {   s.setStartTime(currentTimeCounter);
+            hbox.getChildren().add(processFactory(s,Integer.parseInt(s.getBurst()), currentTimeCounter,totalTime));
+            currentTimeCounter += Integer.parseInt(s.getBurst());
+            s.setEndTime(currentTimeCounter);
+            processedItems.add(s);
+
+            tableView2.getItems().add(s);
+        }
+        hbox.getChildren().add(rightEdge(currentTimeCounter));
+        avgWaitingTimeText.setText(avgWaitingNonPre());
+        avgTurnAroundText.setText(avgTurnaroundNonPre());
+    }
+
+    private void SJF()
+    {
+        hbox.getChildren().clear();
+
+        currentTimeCounter = 0;
+        tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+        while (!tableView.getItems().isEmpty())
+        {
+            GUIProcess current = tableView.getItems().get(0);
+            current.setStartTime(currentTimeCounter);
+            hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
+            currentTimeCounter += Integer.parseInt(current.getBurst());
+            current.setEndTime(currentTimeCounter);
+            tableView2.getItems().add(current);
+            tableView.getItems().remove(current);
+            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+            processedItems.add(current);
+        }
+        hbox.getChildren().add(rightEdge(currentTimeCounter));
+        avgWaitingTimeText.setText(avgWaitingNonPre());
+        avgTurnAroundText.setText(avgTurnaroundNonPre());
     }
 
     private void SJF_P()
@@ -137,13 +180,19 @@ public class GanttChartController {
         while (!tableView.getItems().isEmpty())
         {
             GUIProcess current = tableView.getItems().get(0);
+            current.setStartTime(currentTimeCounter);
             hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
             currentTimeCounter += Integer.parseInt(current.getBurst());
+            current.setEndTime(currentTimeCounter);
             tableView.getItems().remove(current);
+            tableView2.getItems().add(current);
             tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
+            processedItems.add(current);
 
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
+        avgWaitingTimeText.setText(avgWaitingNonPre());
+        avgTurnAroundText.setText(avgTurnaroundNonPre());
     }
     private void priority_P()
     {
@@ -166,19 +215,34 @@ public class GanttChartController {
         hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
     }
 
-    public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
-        hbox.getChildren().clear();
-        this.quantum = quantum;
-        currentTimeCounter = 0;
-        tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
-        while (!tableView.getItems().isEmpty())
+    private String avgWaitingNonPre()
+    {
+        double sum = 0;
+        for(GUIProcess s : processedItems)
         {
-            GUIProcess current = tableView.getItems().get(0);
-            hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
-            currentTimeCounter += Integer.parseInt(current.getBurst());
-            tableView.getItems().remove(current);
-            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
+            sum += (s.getStartTime()-s.getArrivalTimeInt());
         }
-        hbox.getChildren().add(rightEdge(currentTimeCounter));
+        sum /= processedItems.size();
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
     }
+
+    private String avgTurnaroundNonPre()
+    {
+        double sum = 0;
+        for(GUIProcess s : processedItems)
+        {
+            sum += (s.getEndTime()-s.getArrivalTimeInt() );
+        }
+        sum /= processedItems.size();
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
+
+    }
+
+
+
+
 }

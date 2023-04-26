@@ -10,7 +10,13 @@ public class Process {
         this.Arrival=arrival;
         this.burst=burst;
         this.priority=priority;
-        this.ID = Integer.parseInt(pid);
+        if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
+            this.ID = Integer.parseInt(pid.substring(1));
+        }
+        else{
+            this.ID = Integer.parseInt(pid);
+        }
+
 //        this.start = startTime;
 //        this.end = endTime;
     }
@@ -20,7 +26,13 @@ public class Process {
         this.Arrival=process.getArrival();
         this.burst=process.burst;
         this.priority=process.priority;
-        this.ID = Integer.parseInt(process.pid);
+
+        if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
+            this.ID = Integer.parseInt(pid.substring(1));
+        }
+        else{
+            this.ID = Integer.parseInt(pid);
+        }
     }
 
     public int getID() {
