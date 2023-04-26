@@ -29,7 +29,9 @@ public abstract class util {
         return new GUIProcess(process.getPid(),
                 Integer.toString(process.getBurst()),
                 Integer.toString(process.getArrival()),
-                Integer.toString(process.getPriority()));
+                Integer.toString(process.getPriority()),
+                Integer.toString(process.start),
+                Integer.toString(process.end));
     }
 
     public static VBox processFactory(GUIProcess s, int width, int currentTime , int totalTime)
@@ -101,8 +103,10 @@ public abstract class util {
         while(!pq.isEmpty()){
             Process process = pq.poll();
             if(currentTime>=process.getArrival()){
+
                 ganttChart.add(new Process(process));
                 process.burst--;
+
             }
             else ganttChart.add(new Process(Integer.toString(0),0,0,0));
             currentTime++;

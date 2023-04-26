@@ -1,7 +1,7 @@
 package com.collegegroup.processscheduling;
 
 public class Process {
-    public int ID,Arrival,burst,priority,start,end,time_completed;
+    public int ID,Arrival,burst,priority,start,end,time_completed,originalArrivalTime,originalBurstTime;
     public String pid;
     public boolean visited = false;
     public static int curr = 0;
@@ -10,6 +10,8 @@ public class Process {
         this.Arrival=arrival;
         this.burst=burst;
         this.priority=priority;
+        this.originalArrivalTime = arrival;
+        this.originalBurstTime = burst;
         if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
             this.ID = Integer.parseInt(pid.substring(1));
         }
@@ -26,6 +28,8 @@ public class Process {
         this.Arrival=process.getArrival();
         this.burst=process.burst;
         this.priority=process.priority;
+        this.originalArrivalTime = process.originalArrivalTime;
+        this.originalBurstTime=process.originalBurstTime;
 
         if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
             this.ID = Integer.parseInt(pid.substring(1));
@@ -54,6 +58,20 @@ public class Process {
     public int getPriority() {
         return priority;
     }
+
+    public int getOriginalArrivalTime() {
+        return originalArrivalTime;
+    }
+
+    public int getOriginalBurstTime() {
+        return originalBurstTime;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+
 
     public boolean isCompleted(){
         return this.time_completed==this.burst;

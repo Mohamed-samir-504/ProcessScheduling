@@ -50,8 +50,17 @@ public class GUIProcess {
         this.priority = priority;
     }
 
-    public GUIProcess()
-    {}
+    public GUIProcess(String pid, String burst, String arrivalTime, String priority, String start, String end)
+    {
+        this.pid = pid;
+        this.burst = burst;
+        this.arrivalTime = arrivalTime;
+        //this.startTime = Integer.parseInt(arrivalTime);
+        this.priority = priority;
+        this.startTime = Integer.parseInt(start);
+        this.endTime = Integer.parseInt(end);
+
+    }
 
     public String  getPid() {
         return pid;

@@ -32,13 +32,10 @@ public class GanttChartController {
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
 
-    @FXML private TableColumn<GUIProcess, String> pidColumn2;
-    @FXML private TableColumn<GUIProcess, String> startTimeColumn1;
-    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn2;
-    @FXML private TableColumn<GUIProcess, String> endTimeColumn1;
+
 
     @FXML private TableView<GUIProcess> tableView;
-    @FXML private TableView<GUIProcess> tableView2;
+
 
     @FXML private Text avgTurnAroundText,avgWaitingTimeText;
     private String mode,quantum;
@@ -51,6 +48,7 @@ public class GanttChartController {
     @FXML
     public void onClickDraw(ActionEvent ignoredEvent) {
         currentTimeCounter = 0;
+        hbox.getChildren().clear();
         if(mode.equals("FCFS")) FCFS();
         if(mode.equals("SJF")) SJF();
         if(mode.equals("SJF_P")) SJF_P();
@@ -73,11 +71,6 @@ public class GanttChartController {
         burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
-
-        pidColumn2.setCellValueFactory(new PropertyValueFactory<>("pid"));
-        arrivalTimeColumn2.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
-        startTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("startTime"));
-        endTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("endTime"));
 
         //fill the table with the list saved from the last scene.
         tableView.setItems(processList);
@@ -115,7 +108,7 @@ public class GanttChartController {
             s.setEndTime(currentTimeCounter);
             processedItems.add(s);
 
-            tableView2.getItems().add(s);
+
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
         avgWaitingTimeText.setText(avgWaitingNonPre());
@@ -135,7 +128,6 @@ public class GanttChartController {
             hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
             currentTimeCounter += Integer.parseInt(current.getBurst());
             current.setEndTime(currentTimeCounter);
-            tableView2.getItems().add(current);
             tableView.getItems().remove(current);
             tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
             processedItems.add(current);
@@ -162,8 +154,11 @@ public class GanttChartController {
         for(var current : resultt){
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
+
         }
         hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
+        avgWaitingTimeText.setText(avgWaitingPre());
+        avgTurnAroundText.setText(avgTurnAroundPre());
 
 
     }
@@ -185,7 +180,6 @@ public class GanttChartController {
             currentTimeCounter += Integer.parseInt(current.getBurst());
             current.setEndTime(currentTimeCounter);
             tableView.getItems().remove(current);
-            tableView2.getItems().add(current);
             tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
             processedItems.add(current);
 
@@ -213,6 +207,8 @@ public class GanttChartController {
 
         }
         hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
+        avgWaitingTimeText.setText(avgWaitingPre());
+        avgTurnAroundText.setText(avgTurnAroundPre());
     }
 
     private String avgWaitingNonPre()
@@ -240,6 +236,40 @@ public class GanttChartController {
         sum /=100;
         return Double.toString(sum);
 
+    }
+
+    private String avgWaitingPre(){
+        double sum = 0;
+        int n = 0;
+        for(Process s : resultt)
+        {
+            if(s.burst == 1){
+                sum+=(s.end-s.originalArrivalTime-s.originalBurstTime);
+                n++;
+            }
+        }
+
+        sum /= n;
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
+    }
+
+    private String avgTurnAroundPre(){
+        double sum = 0;
+        int n = 0;
+        for(Process s : resultt)
+        {
+            if(s.burst == 1){
+                sum+=(s.end-s.originalArrivalTime);
+                n++;
+            }
+        }
+
+        sum /= n;
+        sum = Math.round(sum*100);
+        sum /=100;
+        return Double.toString(sum);
     }
 
 
