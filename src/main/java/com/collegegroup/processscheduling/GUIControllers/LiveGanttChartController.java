@@ -35,8 +35,17 @@ public class LiveGanttChartController {
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
     @FXML private TableColumn<GUIProcess, String> priorityColumn;
+
+    @FXML private TableColumn<GUIProcess, String> pidColumn2;
+    @FXML private TableColumn<GUIProcess, String> startTimeColumn1;
+    @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn2;
+    @FXML private TableColumn<GUIProcess, String> endTimeColumn1;
+
     @FXML private TextField pidTextField,burstTextField,arrivalTimeTextField;
+
     @FXML private TableView<GUIProcess> tableView;
+    @FXML private TableView<GUIProcess> tableView2;
+
     @FXML private Text currentTimeText,avgTurnAroundText,avgWaitingTimeText;
     ArrayList<GUIProcess> processedItems;
     int currentTimeCounter, itr,timeDrawStart;
@@ -72,6 +81,13 @@ public class LiveGanttChartController {
         burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+
+
+        pidColumn2.setCellValueFactory(new PropertyValueFactory<>("pid"));
+        arrivalTimeColumn2.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
+        startTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("startTime"));
+        endTimeColumn1.setCellValueFactory(new PropertyValueFactory<>("endTime"));
+
         //fill the table with the list saved from the last scene.
         tableView.setItems(processList);
         //log of the items used for calculations
@@ -138,6 +154,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                tableView2.getItems().add(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByFCFS());
@@ -182,6 +199,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                tableView2.getItems().add(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter+1));
@@ -243,6 +261,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                tableView2.getItems().add(currentProcess);
                 hash.remove(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
@@ -321,6 +340,7 @@ public class LiveGanttChartController {
              if(currentProcess.getBurstInt()<=0)
              {
                  processedItems.add(currentProcess);
+                 tableView2.getItems().add(currentProcess);
                  hash.remove(currentProcess);
                  currentProcess.setEndTime(currentTimeCounter);
                  tableView.getItems().remove(currentProcess);
@@ -369,6 +389,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                tableView2.getItems().add(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
@@ -428,6 +449,7 @@ public class LiveGanttChartController {
 
             if(currentProcess.getBurstInt()==0)
             {   processedItems.add(currentProcess);
+                tableView2.getItems().add(currentProcess);
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
