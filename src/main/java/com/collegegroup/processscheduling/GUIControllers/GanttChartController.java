@@ -80,8 +80,10 @@ public class GanttChartController {
     }
 
     public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
+        init(items,sum,roundRobin);
+
         hbox.getChildren().clear();
-        processedItems = new ArrayList<>();
+
         this.quantum = quantum;
         currentTimeCounter = 0;
         tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
