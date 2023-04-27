@@ -129,7 +129,7 @@ public abstract class util {
     public static ArrayList<Process> round_robin(ArrayList<Process> processes,int roundtime)
     {
         processes.sort(new SortFCFS());
-        ArrayList<Process> gc=null;
+        ArrayList<Process> gc=new ArrayList<Process>();
         int current_time=0;
         for (int i=0;i< processes.size();i++)
         {
