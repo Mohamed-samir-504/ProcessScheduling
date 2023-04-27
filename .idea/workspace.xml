@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="rr static" />
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="finished pre work">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Scene2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Scene2Controller.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,10 +50,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
@@ -52,11 +62,11 @@
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling\GUIControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\StaticControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling" />
+      <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling\StaticControllers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.collegegroup.processscheduling.StaticControllers" />
@@ -260,14 +270,7 @@
       <option name="project" value="LOCAL" />
       <updated>1682526318069</updated>
     </task>
-    <task id="LOCAL-00025" summary="rr static">
-      <created>1682610703779</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1682610703779</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -296,8 +299,7 @@
     <MESSAGE value="edit live gui" />
     <MESSAGE value="finished non-pre work" />
     <MESSAGE value="finished pre work" />
-    <MESSAGE value="rr static" />
-    <option name="LAST_COMMIT_MESSAGE" value="rr static" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished pre work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,7 +5,6 @@ import com.collegegroup.processscheduling.Comparators.SortByPriority_NP;
 import com.collegegroup.processscheduling.Comparators.SortBySJF_NP;
 import com.collegegroup.processscheduling.GUIProcess;
 import com.collegegroup.processscheduling.Process;
-import com.collegegroup.processscheduling.util;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -59,7 +58,7 @@ public class GanttChartController {
     //initialize the scene
     //reason for not using a constructor -> can't create constructor because FXMLLoader requires an empty constructor to instantiate an object
     //of the controller class.
-    public void init(ObservableList<GUIProcess> x, int time,String mode)
+    public void init(ObservableList<GUIProcess> x, int time, String mode)
     {
         //get the process list and the current time
         processList = x;
@@ -79,8 +78,10 @@ public class GanttChartController {
         processedItems = new ArrayList<>();
     }
 
-    public void init(ObservableList<GUIProcess> items, int sum, String roundRobin, String quantum) {
-        init(items,sum,roundRobin);
+    public void init(ObservableList<GUIProcess> items, int sum, String mode , String quantum)
+    {
+        init(items,sum,mode);
+
 
         hbox.getChildren().clear();
 
