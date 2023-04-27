@@ -40,7 +40,7 @@ public class GanttChartController {
     private String mode,quantum;
     private int currentTimeCounter;
     private ArrayList<Process>arr;
-    ArrayList<Process>resultt;
+    ArrayList<Process> resultt;
     ArrayList<GUIProcess> processedItems;
 
 
@@ -80,22 +80,8 @@ public class GanttChartController {
 
     public void init(ObservableList<GUIProcess> items, int sum, String mode , String quantum)
     {
-        init(items,sum,mode);
-
-        hbox.getChildren().clear();
-
         this.quantum = quantum;
-        currentTimeCounter = 0;
-        tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
-        while (!tableView.getItems().isEmpty())
-        {
-            GUIProcess current = tableView.getItems().get(0);
-            hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
-            currentTimeCounter += Integer.parseInt(current.getBurst());
-            tableView.getItems().remove(current);
-            tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
-        }
-        hbox.getChildren().add(rightEdge(currentTimeCounter));
+        init(items,sum,mode);
     }
 
     private void FCFS()
