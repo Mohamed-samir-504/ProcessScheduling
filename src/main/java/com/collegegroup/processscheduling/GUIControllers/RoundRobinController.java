@@ -98,7 +98,8 @@ public class RoundRobinController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("GanttChart.fxml"));
             root = loader.load();
             GanttChartController gc = loader.getController();
-            gc.init(tableView.getItems(), sum,"RoundRobin",quantumTextField.getText());
+
+            gc.init(tableView.getItems(), sum, "RoundRobin", quantumTextField.getText());
 
         }
         stage = (Stage)((Node) event.getSource()).getScene().getWindow();

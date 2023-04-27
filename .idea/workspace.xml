@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="rr static">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_2023_7_05_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_27_2023_7_05_PM__Changes_.xml" afterDir="false" />
-    </list>
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,10 +41,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
@@ -54,11 +53,11 @@
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling\GUIControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\StaticControllers" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling" />
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling" />
+      <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\java\com\collegegroup\processscheduling\StaticControllers" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.collegegroup.processscheduling.StaticControllers" />
@@ -262,28 +261,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682526318069</updated>
     </task>
-    <task id="LOCAL-00025" summary="rr static">
-      <created>1682610703779</created>
+    <task id="LOCAL-00025" summary="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive.">
+      <created>1682615323608</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1682610703779</updated>
+      <updated>1682615323608</updated>
     </task>
-    <task id="LOCAL-00026" summary="rr static">
-      <created>1682611009913</created>
+    <task id="LOCAL-00026" summary="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive.">
+      <created>1682615352020</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1682611009913</updated>
+      <updated>1682615352020</updated>
     </task>
-    <task id="LOCAL-00027" summary="rr static">
-      <created>1682611421794</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1682611421794</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,15 +297,14 @@
     <MESSAGE value="added FCFS live" />
     <MESSAGE value="some static" />
     <MESSAGE value="la" />
-    <MESSAGE value="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive." />
     <MESSAGE value="edit rr" />
     <MESSAGE value="finish rr live" />
     <MESSAGE value="finish pree static" />
     <MESSAGE value="edit live gui" />
     <MESSAGE value="finished non-pre work" />
     <MESSAGE value="finished pre work" />
-    <MESSAGE value="rr static" />
-    <option name="LAST_COMMIT_MESSAGE" value="rr static" />
+    <MESSAGE value="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive." />
+    <option name="LAST_COMMIT_MESSAGE" value="live feed done&#10;TODO: Calculating Avg Waiting time for preemptive." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
