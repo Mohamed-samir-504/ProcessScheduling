@@ -134,14 +134,10 @@ public class GanttChartController {
         for(var item : list){
             arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
         }
-
-
         resultt = modify(SJP_PREE(arr,false));
-
 
         for(var current : resultt){
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
-
 
         }
         hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
@@ -277,8 +273,6 @@ public class GanttChartController {
         sum /=100;
         return Double.toString(sum);
     }
-
-
 
 
 }

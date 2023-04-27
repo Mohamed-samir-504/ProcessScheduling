@@ -41,6 +41,7 @@ public class Process {
     }
 
     public Process(int id, int arrival, int burst, int current_time, int i) {
+        this.pid = Integer.toString(id);
         this.ID = id;
         this.Arrival = arrival;
         this.burst = burst;
