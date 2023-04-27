@@ -164,7 +164,25 @@ public class GanttChartController {
     }
     private void roundRobin()
     {
+        arr = new ArrayList<>(tableView.getItems().size());
+        resultt = new ArrayList<>(tableView.getItems().size());
 
+        ObservableList<GUIProcess> list = tableView.getItems();
+        for(var item : list){
+            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+        }
+
+
+        resultt = round_robin(arr,Integer.parseInt(quantum));
+
+
+        for(var current : resultt){
+            hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
+
+        }
+        hbox.getChildren().add(rightEdge(resultt.get(resultt.size()-1).end));
+        avgWaitingTimeText.setText(avgWaitingPre());
+        avgTurnAroundText.setText(avgTurnAroundPre());
     }
     private void priority()
     {

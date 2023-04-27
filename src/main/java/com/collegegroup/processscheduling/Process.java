@@ -5,6 +5,7 @@ public class Process {
     public String pid;
     public boolean visited = false;
     public static int curr = 0;
+
     public Process(String pid, int arrival, int burst, int priority) {
         this.pid=pid;
         this.Arrival=arrival;
@@ -37,6 +38,17 @@ public class Process {
         else{
             this.ID = Integer.parseInt(pid);
         }
+    }
+
+    public Process(int id, int arrival, int burst, int current_time, int i) {
+        this.ID = id;
+        this.Arrival = arrival;
+        this.burst = burst;
+//        this.originalArrivalTime = arrival;
+//        this.originalBurstTime = burst;
+        this.start = current_time;
+        this.end = i;
+
     }
 
     public int getID() {

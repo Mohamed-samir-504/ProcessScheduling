@@ -1,5 +1,8 @@
 package com.collegegroup.processscheduling;
 
+import com.collegegroup.processscheduling.Comparators.SortByFCFS;
+import com.collegegroup.processscheduling.Comparators.*;
+
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -7,6 +10,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -119,6 +123,34 @@ public abstract class util {
         }
 
         return ganttChart;
+    }
+
+
+    public static ArrayList<Process> round_robin(ArrayList<Process> processes,int roundtime)
+    {
+        processes.sort(new SortFCFS());
+        ArrayList<Process> gc=null;
+        int current_time=0;
+        for (int i=0;i< processes.size();i++)
+        {
+            while(processes.get(i).burst!=0)
+            {
+                if(processes.get(i).burst>=roundtime)
+                {
+                    processes.get(i).burst-=roundtime;
+                    gc.add(new Process(processes.get(i).ID, processes.get(i).Arrival, processes.get(i).burst,current_time,current_time+roundtime));
+                    current_time+=roundtime;
+                }
+                else
+                {
+                    gc.add(new Process(processes.get(i).ID, processes.get(i).Arrival, processes.get(i).burst,current_time,current_time+ processes.get(i).burst));
+                    current_time+= processes.get(i).burst;
+                    processes.get(i).burst=0;
+                }
+            }
+        }
+        return gc;
+
     }
 
     public static ArrayList<Process> modify(ArrayList<Process> gc){
