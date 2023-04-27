@@ -32,6 +32,7 @@ public abstract class util {
     {
         return new GUIProcess(process.getPid(),
                 Integer.toString(process.getBurst()),
+
                 Integer.toString(process.getArrival()),
                 Integer.toString(process.getPriority()),
                 Integer.toString(process.start),
@@ -129,7 +130,7 @@ public abstract class util {
     public static ArrayList<Process> round_robin(ArrayList<Process> processes,int roundtime)
     {
         processes.sort(new SortFCFS());
-        ArrayList<Process> gc=null;
+        ArrayList<Process> gc= new ArrayList<>();
         int current_time=0;
         for (int i=0;i< processes.size();i++)
         {

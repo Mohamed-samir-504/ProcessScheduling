@@ -13,12 +13,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-
+import com.collegegroup.processscheduling.util;
 import java.util.ArrayList;
 
 import static com.collegegroup.processscheduling.util.*;
 
-//TODO() Add Priority Column in TableView
 
 
 public class GanttChartController {
@@ -136,7 +135,7 @@ public class GanttChartController {
         }
 
 
-        resultt = modify(SJP_PREE(arr,false));
+        resultt = modify(util.SJP_PREE(arr,false));
 
 
         for(var current : resultt){
