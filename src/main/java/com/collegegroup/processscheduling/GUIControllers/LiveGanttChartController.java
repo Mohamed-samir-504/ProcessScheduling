@@ -21,6 +21,7 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Objects;
 
 import static com.collegegroup.processscheduling.util.*;
 
@@ -304,7 +305,7 @@ public class LiveGanttChartController {
 
              findArrivedProcesses(currentTimeCounter,arrived);
 
-             itr = (itr+1)%arrived.size();
+
 
              var currentProcess = arrived.get(itr);
              int min = Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
@@ -348,6 +349,7 @@ public class LiveGanttChartController {
                  arrived.remove(currentProcess);
 
              }
+             itr = (itr+1)%arrived.size();
              arrived.sort(new SortByFCFS());
 
 
@@ -361,6 +363,7 @@ public class LiveGanttChartController {
                 hbox.getChildren().add(rightEdge(currentTimeCounter));
                 avgWaitingTimeText.setText(avgWaiting());
                 avgTurnAroundText.setText(avgTurnaround());
+
                 tableView.getItems().clear();
             }
         });
@@ -504,6 +507,12 @@ public class LiveGanttChartController {
     private void finish()
     {
         timeline.stop();
+//        for(int i = 0; i<hbox.getChildren().size(); i++){
+//            if(i == hbox.getChildren().size()-1)break;
+//            while(Objects.equals(hbox.getChildren().get(i).getId(), hbox.getChildren().get(i + 1).getId())){
+//                hbox.getChildren().get(i).setVisible(false);
+//            }
+//        }
 
         timeline.getOnFinished().handle(new ActionEvent());
     }

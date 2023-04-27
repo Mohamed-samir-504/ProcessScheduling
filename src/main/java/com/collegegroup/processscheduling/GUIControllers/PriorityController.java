@@ -88,10 +88,10 @@ public class PriorityController implements Initializable{
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("1","1","0","2"));
-        gg.add(new GUIProcess("2","4","0","1"));
-        gg.add(new GUIProcess("3","2","1","0"));
-        gg.add(new GUIProcess("4","3","1","3"));
+        gg.add(new GUIProcess("p1","1","0","2"));
+        gg.add(new GUIProcess("p2","4","0","1"));
+        gg.add(new GUIProcess("p3","2","1","0"));
+        gg.add(new GUIProcess("p4","3","1","3"));
         sum = 1+4+2+3;
         return gg;
     }

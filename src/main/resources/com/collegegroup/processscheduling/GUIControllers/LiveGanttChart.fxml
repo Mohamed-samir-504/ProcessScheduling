@@ -24,7 +24,10 @@
             <Insets left="20.0" right="20.0" top="20.0" />
          </padding>
          <content>
-            <HBox fx:id="hbox" prefHeight="93.0" prefWidth="926.0" />
+            <HBox fx:id="hbox" prefHeight="93.0" prefWidth="926.0">
+               <padding>
+                  <Insets left="10.0" />
+               </padding></HBox>
          </content>
       </ScrollPane>
       <TableView fx:id="tableView" layoutX="234.0" layoutY="286.0" prefHeight="283.0" prefWidth="344.0">

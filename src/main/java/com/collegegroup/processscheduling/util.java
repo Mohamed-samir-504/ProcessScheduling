@@ -9,10 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public abstract class util {
 
@@ -41,7 +38,8 @@ public abstract class util {
     public static VBox processFactory(GUIProcess s, int width, int currentTime , int totalTime)
     {
         String name = s.getPid();
-        Rectangle newProcess = new Rectangle((double) (width * 555) /totalTime + 20,50);
+        Rectangle newProcess = new Rectangle(50*width,50);
+//        (double) (width * 600) /totalTime + 20
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
         StackPane stack = new StackPane();
@@ -76,6 +74,7 @@ public abstract class util {
         vBox.getChildren().add(stack);
         Text text2 = new Text(Integer.toString(currentTime));
         vBox.getChildren().add(text2);
+        vBox.setId(name);
         //shift the burst time a couple of pixels to account for stroke width
         text2.setTranslateX(text2.getX()-4);
         //increment the timer
@@ -131,23 +130,44 @@ public abstract class util {
         processes.sort(new SortFCFS());
         ArrayList<Process> gc=new ArrayList<Process>();
         int current_time=0;
-        for (int i=0;i< processes.size();i++)
-        {
-            while(processes.get(i).burst!=0)
-            {
-                if(processes.get(i).burst>=roundtime)
+        int itr = 0;
+        boolean f = true;
+
+        Hashtable<Process,Integer>hashh = new Hashtable<Process, Integer>();
+
+        for(Process p : processes){
+            hashh.put(p,p.getBurst());
+        }
+
+        while(!processes.isEmpty()){
+            f = true;
+            Process pro = processes.get(itr);
+            if(pro.Arrival <= current_time){
+
+                if(pro.burst>=roundtime)
                 {
-                    processes.get(i).burst-=roundtime;
-                    gc.add(new Process(processes.get(i).ID, processes.get(i).Arrival, processes.get(i).burst,current_time,current_time+roundtime));
-                    current_time+=roundtime;
+                    pro.burst-=roundtime;
+                    gc.add(new Process(pro.pid, pro.Arrival, pro.burst,current_time,current_time+roundtime, hashh.get(pro)));
+                    //current_time+=roundtime;
                 }
-                else
-                {
-                    gc.add(new Process(processes.get(i).ID, processes.get(i).Arrival, processes.get(i).burst,current_time,current_time+ processes.get(i).burst));
-                    current_time+= processes.get(i).burst;
-                    processes.get(i).burst=0;
+                else{
+                    gc.add(new Process(pro.pid, pro.Arrival, 0,current_time,current_time+ pro.burst, hashh.get(pro)));
+                    current_time+= pro.burst;
+                    f = false;
+                    pro.burst=0;
                 }
             }
+            if(pro.burst <= 0){
+                processes.remove(itr);
+            }
+            if(processes.size()!=0){
+                itr= (itr+1)%processes.size();
+            }
+
+            if(f){
+                current_time+=roundtime;
+            }
+
         }
         return gc;
 

@@ -40,13 +40,18 @@ public class Process {
         }
     }
 
-    public Process(int id, int arrival, int burst, int current_time, int i) {
-        this.pid = Integer.toString(id);
-        this.ID = id;
+    public Process(String id, int arrival, int burst, int current_time, int i,int originalBurst) {
+        this.pid = id;
+        if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
+            this.ID = Integer.parseInt(pid.substring(1));
+        }
+        else{
+            this.ID = Integer.parseInt(pid);
+        }
         this.Arrival = arrival;
         this.burst = burst;
-//        this.originalArrivalTime = arrival;
-//        this.originalBurstTime = burst;
+        this.originalArrivalTime = arrival;
+        this.originalBurstTime = originalBurst;
         this.start = current_time;
         this.end = i;
 

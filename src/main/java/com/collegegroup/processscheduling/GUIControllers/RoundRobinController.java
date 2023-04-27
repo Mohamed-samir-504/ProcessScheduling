@@ -114,11 +114,11 @@ public class RoundRobinController implements Initializable {
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("3","10","0"));
-        gg.add(new GUIProcess("1","3","0"));
-        gg.add(new GUIProcess("2","1","2"));
-        gg.add(new GUIProcess("55","5","3"));
-        gg.add(new GUIProcess("4","2","3"));
+        gg.add(new GUIProcess("P3","10","0"));
+        gg.add(new GUIProcess("P1","3","0"));
+        gg.add(new GUIProcess("P2","1","2"));
+        gg.add(new GUIProcess("P55","5","3"));
+        gg.add(new GUIProcess("P4","2","3"));
 
         //1 3 1
         sum = 24;

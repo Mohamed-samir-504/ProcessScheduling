@@ -86,7 +86,7 @@ public class SJFController implements Initializable {
     private ObservableList<GUIProcess> lol() {
         // ArrayList but for GUI (sho5a5)
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
-        gg.add(new GUIProcess("1","7","0"));
+        gg.add(new GUIProcess("p1","7","0"));
         gg.add(new GUIProcess("5","4","2"));
         gg.add(new GUIProcess("2","1","4"));
         sum = 7+4+1;

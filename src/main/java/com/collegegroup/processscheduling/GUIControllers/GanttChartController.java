@@ -15,6 +15,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static com.collegegroup.processscheduling.util.*;
 
@@ -42,6 +43,7 @@ public class GanttChartController {
     private ArrayList<Process>arr;
     ArrayList<Process> resultt;
     ArrayList<GUIProcess> processedItems;
+    String flag;
 
 
     @FXML
@@ -127,6 +129,7 @@ public class GanttChartController {
 
     private void SJF_P()
     {
+        flag = "Pre";
         arr = new ArrayList<>(tableView.getItems().size());
         resultt = new ArrayList<>(tableView.getItems().size());
 
@@ -148,6 +151,7 @@ public class GanttChartController {
     }
     private void roundRobin()
     {
+        flag = "RR";
         arr = new ArrayList<>(tableView.getItems().size());
         resultt = new ArrayList<>(tableView.getItems().size());
 
@@ -192,6 +196,7 @@ public class GanttChartController {
     }
     private void priority_P()
     {
+        flag = "Pre";
         arr = new ArrayList<>(tableView.getItems().size());
         resultt = new ArrayList<>(tableView.getItems().size());
 
@@ -245,10 +250,19 @@ public class GanttChartController {
         int n = 0;
         for(Process s : resultt)
         {
-            if(s.burst == 1){
-                sum+=(s.end-s.originalArrivalTime-s.originalBurstTime);
-                n++;
+            if(Objects.equals(flag, "Pre")){
+                if(s.burst == 1){
+                    sum+=(s.end-s.originalArrivalTime-s.originalBurstTime);
+                    n++;
+                }
             }
+            if(Objects.equals(flag, "RR")){
+                if(s.burst == 0){
+                    sum+=(s.end-s.originalArrivalTime-s.originalBurstTime);
+                    n++;
+                }
+            }
+
         }
 
         sum /= n;
@@ -262,10 +276,19 @@ public class GanttChartController {
         int n = 0;
         for(Process s : resultt)
         {
-            if(s.burst == 1){
-                sum+=(s.end-s.originalArrivalTime);
-                n++;
+            if(Objects.equals(flag, "Pre")){
+                if(s.burst == 1){
+                    sum+=(s.end-s.originalArrivalTime);
+                    n++;
+                }
             }
+            if(Objects.equals(flag, "RR")){
+                if(s.burst == 0){
+                    sum+=(s.end-s.originalArrivalTime);
+                    n++;
+                }
+            }
+
         }
 
         sum /= n;
@@ -273,6 +296,8 @@ public class GanttChartController {
         sum /=100;
         return Double.toString(sum);
     }
+
+
 
 
 }
