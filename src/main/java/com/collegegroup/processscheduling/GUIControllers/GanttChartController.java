@@ -82,7 +82,6 @@ public class GanttChartController {
     {
         init(items,sum,mode);
 
-
         hbox.getChildren().clear();
 
         this.quantum = quantum;
