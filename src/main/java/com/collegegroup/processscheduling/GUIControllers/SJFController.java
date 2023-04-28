@@ -51,7 +51,7 @@ public class SJFController implements Initializable {
         burstColumn.setCellValueFactory(new PropertyValueFactory<>("burst"));
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
         //load dummy data
-        tableView.setItems(lol());
+        //tableView.setItems(lol());
         //Set rows to be Editable
         tableView.setEditable(true);
         pidColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -84,7 +84,7 @@ public class SJFController implements Initializable {
     //Create dummy data (to be removed)
     @FXML
     private ObservableList<GUIProcess> lol() {
-        // ArrayList but for GUI (sho5a5)
+        // ArrayList but for GUI
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
         gg.add(new GUIProcess("p1","7","0"));
         gg.add(new GUIProcess("5","4","2"));

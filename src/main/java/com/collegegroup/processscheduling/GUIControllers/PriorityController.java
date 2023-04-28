@@ -52,7 +52,7 @@ public class PriorityController implements Initializable{
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<>("arrivalTime"));
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
         //load dummy data
-        tableView.setItems(lol());
+        //tableView.setItems(lol());
         //Set rows to be Editable
         tableView.setEditable(true);
         pidColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -86,7 +86,7 @@ public class PriorityController implements Initializable{
     //Create dummy data (to be removed)
     @FXML
     private ObservableList<GUIProcess> lol() {
-        // ArrayList but for GUI (sho5a5)
+        // ArrayList but for GUI
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
         gg.add(new GUIProcess("p1","1","0","2"));
         gg.add(new GUIProcess("p2","4","0","1"));

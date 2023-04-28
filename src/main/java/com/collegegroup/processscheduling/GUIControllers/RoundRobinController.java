@@ -47,7 +47,7 @@ public class RoundRobinController implements Initializable {
         burstColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("burst"));
         arrivalTimeColumn.setCellValueFactory(new PropertyValueFactory<GUIProcess, String>("arrivalTime"));
         //load dummy data
-        tableView.setItems(lol());
+        //tableView.setItems(lol());
         //Set rows to be Editable
         tableView.setEditable(true);
         pidColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -112,7 +112,7 @@ public class RoundRobinController implements Initializable {
     //Create dummy data (to be removed)
     @FXML
     private ObservableList<GUIProcess> lol() {
-        // ArrayList but for GUI (sho5a5)
+        // ArrayList but for GUI
         ObservableList<GUIProcess> gg = FXCollections.observableArrayList();
         gg.add(new GUIProcess("P3","10","0"));
         gg.add(new GUIProcess("P1","3","0"));
