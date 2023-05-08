@@ -7,9 +7,9 @@ public class GUIProcess {
     private String burst;
     private String arrivalTime;
     private String priority;
-    private double startTime ;
-    private double endTime ;
-    private double x;
+    private int startTime ;
+    private int endTime ;
+    private int x;
 
     public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
@@ -20,23 +20,23 @@ public class GUIProcess {
         this.x = 0;
     }
 
-    public double getStartTime() {
+    public int getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(double startTime) {
+    public void setStartTime(int startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(double endTime) {
+    public void setEndTime(int endTime) {
         this.endTime = endTime;
     }
 
-    public double getEndTime() {
+    public int getEndTime() {
         return endTime;
     }
 
-    public void setBurst(double x)
+    public void setBurst(int x)
     {
         burst = String.valueOf(x);
     }
@@ -46,7 +46,7 @@ public class GUIProcess {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
-        this.startTime = Double.parseDouble(arrivalTime);
+        this.startTime = Integer.parseInt(arrivalTime);
         this.priority = priority;
     }
 
@@ -57,8 +57,8 @@ public class GUIProcess {
         this.arrivalTime = arrivalTime;
         //this.startTime = Integer.parseInt(arrivalTime);
         this.priority = priority;
-        this.startTime = Double.parseDouble(start);
-        this.endTime = Double.parseDouble(end);
+        this.startTime = Integer.parseInt(start);
+        this.endTime = Integer.parseInt(end);
 
     }
 
@@ -69,12 +69,10 @@ public class GUIProcess {
     public String getBurst() {
         return burst;
     }
-    public double getBurstDouble() {
-        return Double.parseDouble(burst);
+    public int getBurstInt() {
+        return Integer.parseInt(burst);
     }
-
-
-    public double getArrivalTimeDouble(){ return Integer.parseInt(arrivalTime);}
+    public int getArrivalTimeInt(){ return Integer.parseInt(arrivalTime);}
 
     public String getPriority() {
         return priority;
@@ -84,11 +82,11 @@ public class GUIProcess {
         return arrivalTime;
     }
 
-    public double getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -100,9 +98,8 @@ public class GUIProcess {
     {
         try
         {
-
-            Double.parseDouble(burst);
-            Double.parseDouble(arrivalTime);
+            Integer.parseInt(burst);
+            Integer.parseInt(arrivalTime);
             return true;
         }
         catch (NumberFormatException e)

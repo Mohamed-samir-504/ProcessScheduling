@@ -6,9 +6,9 @@ import com.collegegroup.processscheduling.Process;
 import java.util.Comparator;
 
 public class SortByPriority_NP implements Comparator<GUIProcess> {
-    private double curr;
+    private int curr;
 
-    public SortByPriority_NP(double curr) {
+    public SortByPriority_NP(int curr) {
         this.curr = curr;
     }
     public int compare(GUIProcess a, GUIProcess b)
