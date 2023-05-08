@@ -554,6 +554,7 @@ public class LiveGanttChartController {
 
     @FXML
     public void back(ActionEvent ignoredEvent) throws IOException {
+        timeline.stop();
         if(mode.equals("FCFS"))
         {
             Stage stage;
