@@ -82,6 +82,30 @@ public abstract class util {
     }
 
 
+    public static VBox IDLEliveProcessFactory(String s, int currentTime,int quantum)
+    {
+        String name = s;
+        Rectangle newProcess = new Rectangle( 50*quantum,50);
+        Text text1 = new Text(name);
+        //create a stack pane to stack the rectangle and text on top of each other
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(newProcess, text1);
+        //set the rectangle to be transparent and add a stroke
+        newProcess.setFill(Color.TRANSPARENT);
+        newProcess.setStroke(Color.BLACK);
+        //create a Vbox to add the burst time on the bottom left
+        VBox vBox = new VBox();
+        vBox.getChildren().add(stack);
+        Text text2 = new Text(Integer.toString(currentTime));
+        vBox.getChildren().add(text2);
+        vBox.setId(name);
+        //shift the burst time a couple of pixels to account for stroke width
+        text2.setTranslateX(text2.getX()-4);
+        //increment the timer
+        return vBox;
+    }
+
+
     public static ArrayList<Process> SJP_PREE(ArrayList<Process> processes, boolean priority)
     {
         Comparator<Process> comparator ;
