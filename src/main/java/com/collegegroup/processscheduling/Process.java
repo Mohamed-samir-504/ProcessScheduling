@@ -4,7 +4,7 @@ public class Process {
     public double ID,Arrival,burst,priority,start,end,time_completed,originalArrivalTime,originalBurstTime;
     public String pid;
     public boolean visited = false;
-    public static int curr = 0;
+    public static double curr = 0;
 
     public Process(String pid, double arrival, double burst, double priority) {
         this.pid=pid;

@@ -15,7 +15,7 @@ public abstract class util {
 
     public static Process toProcess(GUIProcess guiProcess)
     {
-        int arrival,burst,priority,startTime,endTime;
+        double arrival,burst,priority,startTime,endTime;
         String pid;
         pid = guiProcess.getPid();
         arrival = Integer.parseInt(guiProcess.getArrivalTime());
@@ -50,7 +50,7 @@ public abstract class util {
         //create a Vbox to add the burst time on the bottom left
         VBox vBox = new VBox();
         vBox.getChildren().add(stack);
-        Text text2 = new Text(Double.toString(Math.round(currentTime/100)*100));
+        Text text2 = new Text(Double.toString(currentTime));
         vBox.getChildren().add(text2);
         //shift the burst time a couple of pixels to account for stroke width
         text2.setTranslateX(text2.getX()-4);
@@ -72,7 +72,7 @@ public abstract class util {
         //create a Vbox to add the burst time on the bottom left
         VBox vBox = new VBox();
         vBox.getChildren().add(stack);
-        Text text2 = new Text(Double.toString(Math.round(currentTime/100)*100));
+        Text text2 = new Text(Double.toString(currentTime));
         vBox.getChildren().add(text2);
         vBox.setId(name);
         //shift the burst time a couple of pixels to account for stroke width
@@ -100,7 +100,7 @@ public abstract class util {
 //            }/
         }
 
-        int currentTime = 0;
+        double currentTime = 0;
         ArrayList<Process> ganttChart = new ArrayList<>();
 
         while(!pq.isEmpty()){
@@ -111,7 +111,7 @@ public abstract class util {
                 process.burst--;
 
             }
-            else ganttChart.add(new Process(Integer.toString(0),0,0,0));
+            else ganttChart.add(new Process(Double.toString(0),0,0,0));
             currentTime++;
             pq.clear();
             for (int i = 0; i < processes.size(); i++) {
@@ -129,7 +129,7 @@ public abstract class util {
     {
         processes.sort(new SortFCFS());
         ArrayList<Process> gc=new ArrayList<Process>();
-        int current_time=0;
+        double current_time=0;
         int itr = 0;
         boolean f = true;
 

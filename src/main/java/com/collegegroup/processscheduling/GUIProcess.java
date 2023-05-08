@@ -57,8 +57,8 @@ public class GUIProcess {
         this.arrivalTime = arrivalTime;
         //this.startTime = Integer.parseInt(arrivalTime);
         this.priority = priority;
-        this.startTime = Integer.parseInt(start);
-        this.endTime = Integer.parseInt(end);
+        this.startTime = Double.parseDouble(start);
+        this.endTime = Double.parseDouble(end);
 
     }
 
@@ -69,10 +69,12 @@ public class GUIProcess {
     public String getBurst() {
         return burst;
     }
-    public double getBurstInt() {
+    public double getBurstDouble() {
         return Double.parseDouble(burst);
     }
-    public double getArrivalTimeInt(){ return Integer.parseInt(arrivalTime);}
+
+
+    public double getArrivalTimeDouble(){ return Integer.parseInt(arrivalTime);}
 
     public String getPriority() {
         return priority;

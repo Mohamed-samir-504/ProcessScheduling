@@ -134,7 +134,7 @@ public class GanttChartController {
 
         ObservableList<GUIProcess> list = tableView.getItems();
         for(var item : list){
-            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+            arr.add(new Process(item.getPid(), item.getArrivalTimeDouble(),item.getBurstDouble(),Integer.parseInt(item.getPriority())));
         }
         resultt = modify(SJP_PREE(arr,false));
 
@@ -156,7 +156,7 @@ public class GanttChartController {
 
         ObservableList<GUIProcess> list = tableView.getItems();
         for(var item : list){
-            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+            arr.add(new Process(item.getPid(), item.getArrivalTimeDouble(),item.getBurstDouble(),Integer.parseInt(item.getPriority())));
         }
 
 
@@ -201,7 +201,7 @@ public class GanttChartController {
 
         ObservableList<GUIProcess> list = tableView.getItems();
         for(var item : list){
-            arr.add(new Process(item.getPid(), item.getArrivalTimeInt(),item.getBurstInt(),Integer.parseInt(item.getPriority())));
+            arr.add(new Process(item.getPid(), item.getArrivalTimeDouble(),item.getBurstDouble(),Integer.parseInt(item.getPriority())));
         }
 
 
@@ -221,7 +221,7 @@ public class GanttChartController {
         double sum = 0;
         for(GUIProcess s : processedItems)
         {
-            sum += (s.getStartTime()-s.getArrivalTimeInt());
+            sum += (s.getStartTime()-s.getArrivalTimeDouble());
         }
         sum /= processedItems.size();
         sum = Math.round(sum*100);
@@ -233,7 +233,7 @@ public class GanttChartController {
         double sum = 0;
         for(GUIProcess s : processedItems)
         {
-            sum += (s.getEndTime()-s.getArrivalTimeInt() );
+            sum += (s.getEndTime()-s.getArrivalTimeDouble() );
         }
         sum /= processedItems.size();
         sum = Math.round(sum*100);

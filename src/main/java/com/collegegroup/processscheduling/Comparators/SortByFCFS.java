@@ -10,6 +10,6 @@ public class SortByFCFS implements Comparator<GUIProcess> {
     // roll number
     public int compare(GUIProcess a, GUIProcess b)
     {
-        return Integer.parseInt(a.getArrivalTime()) - Integer.parseInt(b.getArrivalTime());
+        return (int) (Double.parseDouble(a.getArrivalTime()) - Double.parseDouble(b.getArrivalTime()));
     }
 }
