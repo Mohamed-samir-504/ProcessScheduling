@@ -11,8 +11,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.SJFController">
    <children>
-      <TextField fx:id="pidTextField" layoutX="132.0" layoutY="433.0" promptText="PID" />
-      <TextField fx:id="burstTextField" layoutX="350.0" layoutY="433.0" promptText="Burst Time" />
+      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="132.0" layoutY="433.0" promptText="PID" />
+      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="350.0" layoutY="433.0" promptText="Burst Time" />
       <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="561.0" layoutY="433.0" promptText="Arrival Time" />
       <Button layoutX="200.0" layoutY="523.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
       <Button layoutX="561.0" layoutY="523.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
@@ -29,7 +29,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <CheckBox fx:id="preemptive" layoutX="352.0" layoutY="481.0" mnemonicParsing="false" text="Preemptive" />
-      <CheckBox fx:id="live" layoutX="256.0" layoutY="481.0" mnemonicParsing="false" text="Live" />
+      <CheckBox fx:id="preemptive" layoutX="499.0" layoutY="481.0" mnemonicParsing="false" text="Preemptive" />
+      <CheckBox fx:id="live" layoutX="281.0" layoutY="481.0" mnemonicParsing="false" text="Live" />
    </children>
 </AnchorPane>

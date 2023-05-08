@@ -148,6 +148,7 @@ public class LiveGanttChartController {
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
+                hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
                 currentTimeCounter++;
                 timeDrawStart++;
                 return;
@@ -194,6 +195,7 @@ public class LiveGanttChartController {
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
+                hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
                 currentTimeCounter++;
                 timeDrawStart++;
                 return;
@@ -241,6 +243,7 @@ public class LiveGanttChartController {
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
+                hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
                 currentTimeCounter++;
                 timeDrawStart++;
                 return;
@@ -309,12 +312,22 @@ public class LiveGanttChartController {
                  return;
              }
 
+
+
              findArrivedProcesses(currentTimeCounter,arrived);
 
 
-
+             if(arrived.size() == 0)
+             {
+                 hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
+                 currentTimeCounter++;
+                 timeDrawStart++;
+                 return;
+             }
              var currentProcess = arrived.get(itr);
              int min = Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
+
+
 
              timeline.setRate(Math.max(1,Double.parseDouble(quantum)/currentProcess.getBurstInt()));
 
@@ -386,6 +399,7 @@ public class LiveGanttChartController {
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
+                hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
                 currentTimeCounter++;
                 timeDrawStart++;
                 return;
@@ -432,6 +446,7 @@ public class LiveGanttChartController {
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
             {
+                hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
                 currentTimeCounter++;
                 timeDrawStart++;
                 return;
@@ -539,6 +554,7 @@ public class LiveGanttChartController {
 
     @FXML
     public void back(ActionEvent ignoredEvent) throws IOException {
+        timeline.stop();
         if(mode.equals("FCFS"))
         {
             Stage stage;
