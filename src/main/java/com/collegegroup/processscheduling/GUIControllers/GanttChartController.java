@@ -306,6 +306,7 @@ public class GanttChartController {
 
     @FXML
     public void back(ActionEvent ignoredEvent) throws IOException {
+
         if(mode.equals("FCFS"))
         {
             Stage stage;

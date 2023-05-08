@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="finish all">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="finish all" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -339,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683567535655</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="finish all">
+      <created>1683567847317</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1683567847317</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
