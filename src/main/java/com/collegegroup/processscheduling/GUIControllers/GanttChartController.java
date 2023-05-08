@@ -96,19 +96,34 @@ public class GanttChartController {
     {
         hbox.getChildren().clear();
         currentTimeCounter = 0;
+        int st = 0;
         tableView.getItems().sort(new SortByFCFS());
-        for (GUIProcess s : processList)
-        {   s.setStartTime(currentTimeCounter);
+        int idle = 0;
+        for (int i = 0; i<processList.size(); i++)
+        {
+            var s = processList.get(i);
+            st = currentTimeCounter;
+            while(currentTimeCounter<s.getArrivalTimeInt()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+                idle = 0;
+            }
+
+            s.setStartTime(currentTimeCounter);
             hbox.getChildren().add(processFactory(s,Integer.parseInt(s.getBurst()), currentTimeCounter,totalTime));
+
             currentTimeCounter += Integer.parseInt(s.getBurst());
             s.setEndTime(currentTimeCounter);
             processedItems.add(s);
-
-
         }
         hbox.getChildren().add(rightEdge(currentTimeCounter));
         avgWaitingTimeText.setText(avgWaitingNonPre());
         avgTurnAroundText.setText(avgTurnaroundNonPre());
+
     }
 
     private void SJF()
