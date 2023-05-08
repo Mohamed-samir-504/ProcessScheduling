@@ -57,6 +57,28 @@ public abstract class util {
         //increment the timer
         return vBox;
     }
+    public static VBox idleProcessFactory( int width, int currentTime , int totalTime)
+    {
+        String name = "IDLE";
+        Rectangle newProcess = new Rectangle(50*width,50);
+//        (double) (width * 600) /totalTime + 20
+        Text text1 = new Text(name);
+        //create a stack pane to stack the rectangle and text on top of each other
+        StackPane stack = new StackPane();
+        stack.getChildren().addAll(newProcess, text1);
+        //set the rectangle to be transparent and add a stroke
+        newProcess.setFill(Color.TRANSPARENT);
+        newProcess.setStroke(Color.BLACK);
+        //create a Vbox to add the burst time on the bottom left
+        VBox vBox = new VBox();
+        vBox.getChildren().add(stack);
+        Text text2 = new Text(Integer.toString(currentTime));
+        vBox.getChildren().add(text2);
+        //shift the burst time a couple of pixels to account for stroke width
+        text2.setTranslateX(text2.getX()-4);
+        //increment the timer
+        return vBox;
+    }
 
     public static VBox liveProcessFactory(GUIProcess s, int currentTime,int quantum)
     {

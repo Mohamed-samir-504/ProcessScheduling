@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="idle">
+    <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="finish all">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFSController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFSController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/util.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/util.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +49,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="dart.analysis.tool.window.visible" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
@@ -341,21 +339,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683567535655</updated>
     </task>
-    <task id="LOCAL-00035" summary="idle">
-      <created>1683564902650</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1683564902650</updated>
-    </task>
-    <task id="LOCAL-00036" summary="idle">
-      <created>1683566796170</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1683566796170</updated>
-    </task>
-    <option name="localTasksCounter" value="37" />
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -387,8 +371,7 @@
     <MESSAGE value="rr static" />
     <MESSAGE value="rr staticcc" />
     <MESSAGE value="finish all" />
-    <MESSAGE value="idle" />
-    <option name="LAST_COMMIT_MESSAGE" value="idle" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish all" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
