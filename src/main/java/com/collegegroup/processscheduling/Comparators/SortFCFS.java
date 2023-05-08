@@ -9,6 +9,6 @@ public class SortFCFS implements Comparator<Process> {
     // roll number
     public int compare(Process a, Process b)
     {
-        return a.Arrival - b.Arrival;
+        return (int) (a.Arrival - b.Arrival);
     }
 }

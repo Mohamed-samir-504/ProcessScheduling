@@ -6,9 +6,9 @@ import com.collegegroup.processscheduling.Process;
 import java.util.Comparator;
 
 public class SortBySJF_NP implements Comparator<GUIProcess> {
-    private int curr;
+    private double curr;
 
-    public SortBySJF_NP(int curr) {
+    public SortBySJF_NP(double curr) {
         this.curr = curr;
     }
 

@@ -7,9 +7,9 @@ public class GUIProcess {
     private String burst;
     private String arrivalTime;
     private String priority;
-    private int startTime ;
-    private int endTime ;
-    private int x;
+    private double startTime ;
+    private double endTime ;
+    private double x;
 
     public GUIProcess(String pid, String burst, String arrivalTime) {
         this.pid = pid;
@@ -20,23 +20,23 @@ public class GUIProcess {
         this.x = 0;
     }
 
-    public int getStartTime() {
+    public double getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(double startTime) {
         this.startTime = startTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(double endTime) {
         this.endTime = endTime;
     }
 
-    public int getEndTime() {
+    public double getEndTime() {
         return endTime;
     }
 
-    public void setBurst(int x)
+    public void setBurst(double x)
     {
         burst = String.valueOf(x);
     }
@@ -46,7 +46,7 @@ public class GUIProcess {
         this.pid = pid;
         this.burst = burst;
         this.arrivalTime = arrivalTime;
-        this.startTime = Integer.parseInt(arrivalTime);
+        this.startTime = Double.parseDouble(arrivalTime);
         this.priority = priority;
     }
 
@@ -69,10 +69,10 @@ public class GUIProcess {
     public String getBurst() {
         return burst;
     }
-    public int getBurstInt() {
-        return Integer.parseInt(burst);
+    public double getBurstInt() {
+        return Double.parseDouble(burst);
     }
-    public int getArrivalTimeInt(){ return Integer.parseInt(arrivalTime);}
+    public double getArrivalTimeInt(){ return Integer.parseInt(arrivalTime);}
 
     public String getPriority() {
         return priority;
@@ -82,11 +82,11 @@ public class GUIProcess {
         return arrivalTime;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
@@ -98,8 +98,9 @@ public class GUIProcess {
     {
         try
         {
-            Integer.parseInt(burst);
-            Integer.parseInt(arrivalTime);
+
+            Double.parseDouble(burst);
+            Double.parseDouble(arrivalTime);
             return true;
         }
         catch (NumberFormatException e)

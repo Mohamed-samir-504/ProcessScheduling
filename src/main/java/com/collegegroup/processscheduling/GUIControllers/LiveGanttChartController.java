@@ -30,8 +30,8 @@ public class LiveGanttChartController {
     ObservableList<GUIProcess> processList;
 
     @FXML HBox hbox;
-    private int totalTime = 0, scale;
-    private Hashtable<GUIProcess, Integer>hash;
+    private double totalTime = 0, scale;
+    private Hashtable<GUIProcess, Double>hash;
     @FXML private TableColumn<GUIProcess, String> pidColumn;
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
@@ -49,7 +49,7 @@ public class LiveGanttChartController {
 
     @FXML private Text currentTimeText,avgTurnAroundText,avgWaitingTimeText;
     ArrayList<GUIProcess> processedItems;
-    int currentTimeCounter, itr,timeDrawStart;
+    double currentTimeCounter, itr,timeDrawStart;
     Timeline timeline;
     private String mode,quantum = "1";
 
@@ -69,7 +69,7 @@ public class LiveGanttChartController {
     }
 
 
-    public void init(ObservableList<GUIProcess> x, int time, String mode)
+    public void init(ObservableList<GUIProcess> x, double time, String mode)
     {
         //get the process list and the current time
         processList = x;
@@ -137,7 +137,7 @@ public class LiveGanttChartController {
             if(tableView.getItems().size()==0)
             {finish(); return;}
 
-            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            currentTimeText.setText(Double.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
@@ -183,7 +183,7 @@ public class LiveGanttChartController {
         timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
             if(tableView.getItems().size()==0)
             {finish(); return;}
-            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            currentTimeText.setText(Double.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
@@ -229,7 +229,7 @@ public class LiveGanttChartController {
              if(tableView.getItems().size()==0)
              {finish(); return;}
             tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter));
-            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            currentTimeText.setText(Double.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
 
@@ -244,7 +244,7 @@ public class LiveGanttChartController {
                     hash.replace(currentProcess,currentTimeCounter+1);
                 }
                 else{
-                    int p = hash.get(currentProcess);
+                    double p = hash.get(currentProcess);
                     currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
                     hash.replace(currentProcess,currentTimeCounter+1);
                 }
@@ -295,7 +295,7 @@ public class LiveGanttChartController {
         ArrayList<GUIProcess> arrived = new ArrayList<>();
 
          timeline = new Timeline(new KeyFrame(Duration.seconds(Double.parseDouble(quantum)), event -> {
-             currentTimeText.setText(Integer.toString(currentTimeCounter));
+             currentTimeText.setText(Double.toString(currentTimeCounter));
              tableView.refresh();
              if(tableView.getItems().size()==0)
              {
@@ -307,8 +307,8 @@ public class LiveGanttChartController {
 
 
 
-             var currentProcess = arrived.get(itr);
-             int min = Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
+             var currentProcess = arrived.get((int) itr);
+             double min = Math.min(Double.parseDouble(quantum), currentProcess.getBurstInt());
 
              timeline.setRate(Math.max(1,Double.parseDouble(quantum)/currentProcess.getBurstInt()));
 
@@ -317,7 +317,7 @@ public class LiveGanttChartController {
                      hash.replace(currentProcess,currentTimeCounter+min);
                  }
                  else{
-                     int p = hash.get(currentProcess);
+                     double p = hash.get(currentProcess);
                      currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
                      hash.replace(currentProcess,currentTimeCounter+min);
                  }
@@ -375,7 +375,7 @@ public class LiveGanttChartController {
          timeline = new Timeline(new KeyFrame(Duration.seconds(1),event -> {
              if(tableView.getItems().size()==0)
              {finish(); return;}
-            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            currentTimeText.setText(Double.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
@@ -421,7 +421,7 @@ public class LiveGanttChartController {
              if(tableView.getItems().size()==0)
              {finish(); return;}
             tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
-            currentTimeText.setText(Integer.toString(currentTimeCounter));
+            currentTimeText.setText(Double.toString(currentTimeCounter));
             GUIProcess currentProcess = tableView.getItems().get(0);
 
             if(currentTimeCounter<currentProcess.getArrivalTimeInt())
@@ -435,7 +435,7 @@ public class LiveGanttChartController {
                      hash.replace(currentProcess,currentTimeCounter+1);
                  }
                  else{
-                     int p = hash.get(currentProcess);
+                     double p = hash.get(currentProcess);
                      currentProcess.setX(currentProcess.getX()+(currentTimeCounter-p));
                      hash.replace(currentProcess,currentTimeCounter+1);
                  }
@@ -517,7 +517,7 @@ public class LiveGanttChartController {
         timeline.getOnFinished().handle(new ActionEvent());
     }
 
-    private void findArrivedProcesses(int currentTime,ArrayList<GUIProcess> arrived)
+    private void findArrivedProcesses(double currentTime,ArrayList<GUIProcess> arrived)
     {
         for(var process : tableView.getItems())
         {

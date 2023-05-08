@@ -26,7 +26,7 @@ public class GanttChartController {
     ObservableList<GUIProcess> processList;
 
     @FXML HBox hbox;
-    private int totalTime = 0;
+    private double totalTime = 0;
     @FXML private TableColumn<GUIProcess, String> pidColumn;
     @FXML private TableColumn<GUIProcess, String> burstColumn;
     @FXML private TableColumn<GUIProcess, String> arrivalTimeColumn;
@@ -39,8 +39,8 @@ public class GanttChartController {
 
     @FXML private Text avgTurnAroundText,avgWaitingTimeText;
     private String mode,quantum;
-    private int currentTimeCounter;
-    private ArrayList<Process>arr;
+    private double currentTimeCounter;
+    private ArrayList<Process> arr;
     ArrayList<Process> resultt;
     ArrayList<GUIProcess> processedItems;
     String flag;
@@ -60,7 +60,7 @@ public class GanttChartController {
     //initialize the scene
     //reason for not using a constructor -> can't create constructor because FXMLLoader requires an empty constructor to instantiate an object
     //of the controller class.
-    public void init(ObservableList<GUIProcess> x, int time, String mode)
+    public void init(ObservableList<GUIProcess> x, double time, String mode)
     {
         //get the process list and the current time
         processList = x;
@@ -80,7 +80,7 @@ public class GanttChartController {
         processedItems = new ArrayList<>();
     }
 
-    public void init(ObservableList<GUIProcess> items, int sum, String mode , String quantum)
+    public void init(ObservableList<GUIProcess> items, double sum, String mode , String quantum)
     {
         this.quantum = quantum;
         init(items,sum,mode);
@@ -93,8 +93,8 @@ public class GanttChartController {
         tableView.getItems().sort(new SortByFCFS());
         for (GUIProcess s : processList)
         {   s.setStartTime(currentTimeCounter);
-            hbox.getChildren().add(processFactory(s,Integer.parseInt(s.getBurst()), currentTimeCounter,totalTime));
-            currentTimeCounter += Integer.parseInt(s.getBurst());
+            hbox.getChildren().add(processFactory(s,Double.parseDouble(s.getBurst()), currentTimeCounter,totalTime));
+            currentTimeCounter += Double.parseDouble(s.getBurst());
             s.setEndTime(currentTimeCounter);
             processedItems.add(s);
 
@@ -160,7 +160,7 @@ public class GanttChartController {
         }
 
 
-        resultt = round_robin(arr,Integer.parseInt(quantum));
+        resultt = round_robin(arr,Double.parseDouble(quantum));
 
 
         for(var current : resultt){

@@ -25,7 +25,7 @@ public class FCFSController implements Initializable {
     @FXML private TableColumn<GUIProcess, String> pidColumn,burstColumn,arrivalTimeColumn;
     @FXML private TextField pidTextField,burstTextField,arrivalTimeTextField;
     @FXML private CheckBox live;
-    int sum = 0;
+    double sum = 0;
 
 
 
@@ -54,7 +54,7 @@ public class FCFSController implements Initializable {
 
         if(newProcess.isNotEmpty() && newProcess.isValid()) {
             tableView.getItems().add(newProcess);
-            sum+=Integer.parseInt(burstTextField.getText());
+            sum+=Double.parseDouble(burstTextField.getText());
         }
     }
     @FXML
@@ -65,7 +65,7 @@ public class FCFSController implements Initializable {
 
             for (GUIProcess GUIProcess : selected) {
                 allProcesses.remove(GUIProcess);
-                sum-=Integer.parseInt(GUIProcess.getBurst());
+                sum-=Double.parseDouble(GUIProcess.getBurst());
             }
     }
 

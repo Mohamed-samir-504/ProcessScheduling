@@ -28,14 +28,14 @@ public abstract class util {
     public static GUIProcess toGUIProcess(Process process)
     {
         return new GUIProcess(process.getPid(),
-                Integer.toString(process.getBurst()),
-                Integer.toString(process.getArrival()),
-                Integer.toString(process.getPriority()),
-                Integer.toString(process.start),
-                Integer.toString(process.end));
+                Double.toString(process.getBurst()),
+                Double.toString(process.getArrival()),
+                Double.toString(process.getPriority()),
+                Double.toString(process.start),
+                Double.toString(process.end));
     }
 
-    public static VBox processFactory(GUIProcess s, int width, int currentTime , int totalTime)
+    public static VBox processFactory(GUIProcess s, double width, double currentTime , double totalTime)
     {
         String name = s.getPid();
         Rectangle newProcess = new Rectangle((double) (500 * width)/totalTime ,50);
@@ -50,7 +50,7 @@ public abstract class util {
         //create a Vbox to add the burst time on the bottom left
         VBox vBox = new VBox();
         vBox.getChildren().add(stack);
-        Text text2 = new Text(Integer.toString(currentTime));
+        Text text2 = new Text(Double.toString(Math.round(currentTime/100)*100));
         vBox.getChildren().add(text2);
         //shift the burst time a couple of pixels to account for stroke width
         text2.setTranslateX(text2.getX()-4);
@@ -58,7 +58,7 @@ public abstract class util {
         return vBox;
     }
 
-    public static VBox liveProcessFactory(GUIProcess s, int currentTime,int quantum)
+    public static VBox liveProcessFactory(GUIProcess s, double currentTime,double quantum)
     {
         String name = s.getPid();
         Rectangle newProcess = new Rectangle( 50*quantum,50);
@@ -72,7 +72,7 @@ public abstract class util {
         //create a Vbox to add the burst time on the bottom left
         VBox vBox = new VBox();
         vBox.getChildren().add(stack);
-        Text text2 = new Text(Integer.toString(currentTime));
+        Text text2 = new Text(Double.toString(Math.round(currentTime/100)*100));
         vBox.getChildren().add(text2);
         vBox.setId(name);
         //shift the burst time a couple of pixels to account for stroke width
@@ -125,7 +125,7 @@ public abstract class util {
     }
 
 
-    public static ArrayList<Process> round_robin(ArrayList<Process> processes,int roundtime)
+    public static ArrayList<Process> round_robin(ArrayList<Process> processes,Double roundtime)
     {
         processes.sort(new SortFCFS());
         ArrayList<Process> gc=new ArrayList<Process>();
@@ -133,7 +133,7 @@ public abstract class util {
         int itr = 0;
         boolean f = true;
 
-        Hashtable<Process,Integer>hashh = new Hashtable<Process, Integer>();
+        Hashtable<Process,Double>hashh = new Hashtable<Process, Double>();
 
         for(Process p : processes){
             hashh.put(p,p.getBurst());
@@ -202,11 +202,11 @@ public abstract class util {
 
 
     //add the last burst time in the table (cosmetic)
-    public static VBox rightEdge(int currentTime)
+    public static VBox rightEdge(double currentTime)
     {
         VBox vBox = new VBox();
         Rectangle empty = new Rectangle(0,50);
-        Text last = new Text(Integer.toString(currentTime));
+        Text last = new Text(Double.toString(currentTime));
         last.setTranslateX(last.getX()-6);
         vBox.getChildren().add(empty);
         vBox.getChildren().add(last);

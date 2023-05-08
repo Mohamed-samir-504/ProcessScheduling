@@ -1,12 +1,12 @@
 package com.collegegroup.processscheduling;
 
 public class Process {
-    public int ID,Arrival,burst,priority,start,end,time_completed,originalArrivalTime,originalBurstTime;
+    public double ID,Arrival,burst,priority,start,end,time_completed,originalArrivalTime,originalBurstTime;
     public String pid;
     public boolean visited = false;
     public static int curr = 0;
 
-    public Process(String pid, int arrival, int burst, int priority) {
+    public Process(String pid, double arrival, double burst, double priority) {
         this.pid=pid;
         this.Arrival=arrival;
         this.burst=burst;
@@ -40,7 +40,7 @@ public class Process {
         }
     }
 
-    public Process(String id, int arrival, int burst, int current_time, int i,int originalBurst) {
+    public Process(String id, double arrival, double burst, double current_time, double i,double originalBurst) {
         this.pid = id;
         if(pid.charAt(0) < '0'|| pid.charAt(0) >'9'){
             this.ID = Integer.parseInt(pid.substring(1));
@@ -57,15 +57,15 @@ public class Process {
 
     }
 
-    public int getID() {
+    public double getID() {
         return ID;
     }
 
-    public int getArrival() {
+    public double getArrival() {
         return Arrival;
     }
 
-    public int getBurst() {
+    public double getBurst() {
         return burst;
     }
 
@@ -73,19 +73,19 @@ public class Process {
         return pid;
     }
 
-    public int getPriority() {
+    public double getPriority() {
         return priority;
     }
 
-    public int getOriginalArrivalTime() {
+    public double getOriginalArrivalTime() {
         return originalArrivalTime;
     }
 
-    public int getOriginalBurstTime() {
+    public double getOriginalBurstTime() {
         return originalBurstTime;
     }
 
-    public int getEnd() {
+    public double getEnd() {
         return end;
     }
 
