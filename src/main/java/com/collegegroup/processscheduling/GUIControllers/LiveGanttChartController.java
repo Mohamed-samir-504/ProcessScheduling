@@ -166,8 +166,11 @@ public class LiveGanttChartController {
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByFCFS());
-                if(tableView.getItems().size()>0)
+                if(tableView.getItems().size()>0){
+                    if(!(tableView.getItems().get(0).getArrivalTimeInt() > currentTimeCounter))
                     tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                }
+
             }
 
             currentTimeCounter++;
@@ -213,8 +216,10 @@ public class LiveGanttChartController {
                 currentProcess.setEndTime(currentTimeCounter+1);
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter+1));
-                if(tableView.getItems().size()>0)
-                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                if(tableView.getItems().size()>0){
+                    if(!(tableView.getItems().get(0).getArrivalTimeInt() > currentTimeCounter))
+                        tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                }
             }
             avgTurnAroundText.setText(avgTurnaround());
             avgWaitingTimeText.setText(avgWaiting());
@@ -278,7 +283,8 @@ public class LiveGanttChartController {
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortBySJF_NP(currentTimeCounter+1));
                 if(tableView.getItems().size()>0 && !hash.containsKey(tableView.getItems().get(0)))
-                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                    if(!(tableView.getItems().get(0).getArrivalTimeInt() > currentTimeCounter))
+                        tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
 
 
@@ -312,11 +318,7 @@ public class LiveGanttChartController {
                  return;
              }
 
-
-
              findArrivedProcesses(currentTimeCounter,arrived);
-
-
              if(arrived.size() == 0)
              {
                  hbox.getChildren().add(IDLEliveProcessFactory("IDLE", currentTimeCounter,1));
@@ -326,8 +328,6 @@ public class LiveGanttChartController {
              }
              var currentProcess = arrived.get(itr);
              int min = Math.min(Integer.parseInt(quantum), currentProcess.getBurstInt());
-
-
 
              timeline.setRate(Math.max(1,Double.parseDouble(quantum)/currentProcess.getBurstInt()));
 
@@ -368,6 +368,7 @@ public class LiveGanttChartController {
                  arrived.remove(currentProcess);
 
              }
+
              itr = (itr+1)%arrived.size();
              arrived.sort(new SortByFCFS());
 
@@ -418,7 +419,8 @@ public class LiveGanttChartController {
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
                 if(tableView.getItems().size()>0)
-                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                    if(!(tableView.getItems().get(0).getArrivalTimeInt() > currentTimeCounter))
+                        tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
             avgTurnAroundText.setText(avgTurnaround());
             avgWaitingTimeText.setText(avgWaiting());
@@ -479,7 +481,8 @@ public class LiveGanttChartController {
                 tableView.getItems().remove(currentProcess);
                 tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter+1));
                 if(tableView.getItems().size()>0 && !hash.containsKey(tableView.getItems().get(0)))
-                    tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
+                    if(!(tableView.getItems().get(0).getArrivalTimeInt() > currentTimeCounter))
+                        tableView.getItems().get(0).setStartTime(currentTimeCounter+1);
             }
 
             tableView.getItems().sort(new SortByPriority_NP(currentTimeCounter));
@@ -622,13 +625,6 @@ public class LiveGanttChartController {
 
 
     }
-
-
-
-
-
-
-
 
 
 }
