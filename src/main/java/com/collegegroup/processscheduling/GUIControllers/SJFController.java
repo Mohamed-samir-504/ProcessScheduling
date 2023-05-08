@@ -123,6 +123,11 @@ public class SJFController implements Initializable {
         stage.setResizable(false);
         stage.show();
     }
+    public void init(ObservableList<GUIProcess> arr)
+    {
+
+        tableView.setItems(arr);
+    }
 
 
 

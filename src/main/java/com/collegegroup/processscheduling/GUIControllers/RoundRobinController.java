@@ -124,4 +124,9 @@ public class RoundRobinController implements Initializable {
         sum = 24;
         return gg;
     }
+    public void init(ObservableList<GUIProcess> arr)
+    {
+
+        tableView.setItems(arr);
+    }
 }

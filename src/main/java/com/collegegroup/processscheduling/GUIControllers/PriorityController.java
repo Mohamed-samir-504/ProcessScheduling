@@ -128,6 +128,11 @@ public class PriorityController implements Initializable{
         stage.show();
 
     }
+    public void init(ObservableList<GUIProcess> arr)
+    {
+
+        tableView.setItems(arr);
+    }
 
 }
 

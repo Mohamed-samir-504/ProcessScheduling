@@ -11,14 +11,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Objects;
@@ -543,6 +549,85 @@ public class LiveGanttChartController {
         }
 
     }
+
+
+
+    @FXML
+    public void back(ActionEvent ignoredEvent) throws IOException {
+        if(mode.equals("FCFS"))
+        {
+            Stage stage;
+            Scene scene;
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FCFS.fxml"));
+            root = loader.load();
+            FCFSController controller = loader.getController();
+            controller.init(tableView.getItems());
+            stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+        if(mode.equals("SJF") || mode.equals("SJF_P"))
+        {
+            Stage stage;
+            Scene scene;
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SJF.fxml"));
+            root = loader.load();
+            SJFController controller = loader.getController();
+            controller.init(tableView.getItems());
+            stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+        }
+
+        if(mode.equals("Priority") || mode.equals("Priority_P"))
+        {
+            Stage stage;
+            Scene scene;
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Priority.fxml"));
+            root = loader.load();
+            PriorityController controller = loader.getController();
+            controller.init(tableView.getItems());
+            stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+
+        if(mode.equals("RoundRobin"))
+        {
+            Stage stage;
+            Scene scene;
+            Parent root;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("RoundRobin.fxml"));
+            root = loader.load();
+            RoundRobinController controller = loader.getController();
+            controller.init(tableView.getItems());
+            stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        }
+
+
+
+    }
+
+
+
+
+
+
+
 
 
 }
