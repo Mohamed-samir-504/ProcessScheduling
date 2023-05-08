@@ -47,6 +47,13 @@ public class FCFSController implements Initializable {
         //select multiple rows
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
+
+    public void init(ObservableList<GUIProcess> arr)
+    {
+
+        tableView.setItems(arr);
+    }
+
     @FXML
     public void insertButtonPushed()
     {
