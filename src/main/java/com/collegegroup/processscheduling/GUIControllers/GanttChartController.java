@@ -328,7 +328,7 @@ public class GanttChartController {
             Parent root;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SJF.fxml"));
             root = loader.load();
-            FCFSController controller = loader.getController();
+            SJFController controller = loader.getController();
             controller.init(tableView.getItems());
             stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -345,7 +345,7 @@ public class GanttChartController {
             Parent root;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Priority.fxml"));
             root = loader.load();
-            FCFSController controller = loader.getController();
+            PriorityController controller = loader.getController();
             controller.init(tableView.getItems());
             stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -361,7 +361,7 @@ public class GanttChartController {
             Parent root;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("RoundRobin.fxml"));
             root = loader.load();
-            FCFSController controller = loader.getController();
+            RoundRobinController controller = loader.getController();
             controller.init(tableView.getItems());
             stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);

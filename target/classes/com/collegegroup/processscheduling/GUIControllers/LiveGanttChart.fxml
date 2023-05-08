@@ -90,5 +90,6 @@
             <TableColumn fx:id="endTimeColumn1" prefWidth="87.0" text="End time" />
          </columns>
       </TableView>
+      <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
    </children>
 </AnchorPane>
