@@ -126,7 +126,6 @@ public class GanttChartController {
         avgWaitingTimeText.setText(avgWaitingNonPre());
         avgTurnAroundText.setText(avgTurnaroundNonPre());
     }
-
     private void SJF_P()
     {
         flag = "Pre";
@@ -217,7 +216,6 @@ public class GanttChartController {
         avgWaitingTimeText.setText(avgWaitingPre());
         avgTurnAroundText.setText(avgTurnAroundPre());
     }
-
     private String avgWaitingNonPre()
     {
         double sum = 0;
@@ -230,7 +228,6 @@ public class GanttChartController {
         sum /=100;
         return Double.toString(sum);
     }
-
     private String avgTurnaroundNonPre()
     {
         double sum = 0;

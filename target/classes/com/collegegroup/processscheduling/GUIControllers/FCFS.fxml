@@ -11,8 +11,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.FCFSController">
    <children>
-      <TextField fx:id="pidTextField" layoutX="132.0" layoutY="433.0" promptText="PID" />
-      <TextField fx:id="burstTextField" layoutX="350.0" layoutY="433.0" promptText="Burst Time" />
+      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="132.0" layoutY="433.0" promptText="PID" />
+      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="350.0" layoutY="433.0" promptText="Burst Time" />
       <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="561.0" layoutY="433.0" promptText="Arrival Time" />
       <Button layoutX="200.0" layoutY="523.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
       <Button layoutX="561.0" layoutY="523.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />

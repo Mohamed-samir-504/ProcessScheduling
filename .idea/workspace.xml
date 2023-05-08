@@ -5,12 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="finish all">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByFCFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByFCFS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByPriority_NP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortByPriority_NP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortBySJF_NP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortBySJF_NP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortFCFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Comparators/SortFCFS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/FCFSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/GanttChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/PriorityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Scene2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/Scene2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Scene2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Scene2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/GanttChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Scene2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Scene2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +83,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\ProcessScheduling\src\main\resources\com\collegegroup\processscheduling\GUIControllers" />
@@ -358,6 +393,11 @@
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/util.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
