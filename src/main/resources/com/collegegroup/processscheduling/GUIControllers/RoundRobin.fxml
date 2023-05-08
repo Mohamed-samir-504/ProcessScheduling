@@ -9,26 +9,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.RoundRobinController">
-     <Label layoutX="334.0" layoutY="21.0" prefHeight="27.0" prefWidth="101.0" text="Process List">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.RoundRobinController">
+     <Label layoutX="474.0" layoutY="14.0" prefHeight="27.0" prefWidth="101.0" text="Process List">
          <font>
              <Font name="System Bold Italic" size="18.0" />
          </font>
      </Label>
 
-     <TableView fx:id="tableView" layoutX="199.0" layoutY="64.0" prefHeight="250.0" prefWidth="370.0">
+     <TableView fx:id="tableView" layoutX="226.0" layoutY="65.0" prefHeight="418.0" prefWidth="597.0">
          <columns>
-             <TableColumn fx:id="pidColumn" prefWidth="120.0" text="PID" />
-             <TableColumn fx:id="burstColumn" prefWidth="154.0" text="Burst Time" />
-             <TableColumn fx:id="arrivalTimeColumn" prefWidth="91.0" text="Arrival Time" />
+             <TableColumn fx:id="pidColumn" prefWidth="161.0" text="PID" />
+             <TableColumn fx:id="burstColumn" prefWidth="229.0" text="Burst Time" />
+             <TableColumn fx:id="arrivalTimeColumn" prefWidth="206.0" text="Arrival Time" />
          </columns>
      </TableView>
-      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="83.0" layoutY="372.0" prefHeight="25.0" prefWidth="153.0" promptText="PID" />
-      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="251.0" layoutY="372.0" promptText="Burst Time" />
-      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="421.0" layoutY="372.0" promptText="Arrival Time" />
-       <Button layoutX="159.0" layoutY="507.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="33.0" prefWidth="80.0" text="Insert" />
-       <Button layoutX="570.0" layoutY="507.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="39.0" prefWidth="92.0" text="Delete" />
-       <Button layoutX="346.0" layoutY="507.0" mnemonicParsing="false" onAction="#drawButtonPushed" prefHeight="39.0" prefWidth="108.0" text="Draw Gantt Chart" />
-   <TextField fx:id="quantumTextField" alignment="CENTER" layoutX="588.0" layoutY="372.0" promptText="Time Quantum" />
-   <CheckBox fx:id="live" layoutX="364.0" layoutY="439.0" mnemonicParsing="false" text="Live" />
+      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="199.0" layoutY="518.0" prefHeight="41.0" prefWidth="153.0" promptText="PID" />
+      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="367.0" layoutY="518.0" prefHeight="41.0" prefWidth="149.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="537.0" layoutY="518.0" prefHeight="41.0" prefWidth="149.0" promptText="Arrival Time" />
+       <Button layoutX="279.0" layoutY="616.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="41.0" prefWidth="92.0" text="Insert" />
+       <Button layoutX="690.0" layoutY="616.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="41.0" prefWidth="101.0" text="Delete" />
+       <Button layoutX="466.0" layoutY="616.0" mnemonicParsing="false" onAction="#drawButtonPushed" prefHeight="41.0" prefWidth="117.0" text="Draw Gantt Chart" />
+   <TextField fx:id="quantumTextField" alignment="CENTER" layoutX="704.0" layoutY="518.0" prefHeight="41.0" prefWidth="149.0" promptText="Time Quantum" />
+   <CheckBox fx:id="live" layoutX="496.0" layoutY="578.0" mnemonicParsing="false" text="Live" />
+   <Button layoutX="80.0" layoutY="53.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="32.0" text="&lt;" />
 </AnchorPane>

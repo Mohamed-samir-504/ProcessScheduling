@@ -6,14 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="852bb125-5ffd-4b59-af8c-f7b3086fb970" name="Changes" comment="idle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/LiveGanttChartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/collegegroup/processscheduling/GUIControllers/SJFController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/FCFS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/Priority.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/RoundRobinController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/collegegroup/processscheduling/GUIControllers/SJF.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683564902650</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="idle">
+      <created>1683566796170</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1683566796170</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

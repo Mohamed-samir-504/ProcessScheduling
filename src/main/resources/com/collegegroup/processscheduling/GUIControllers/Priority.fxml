@@ -9,28 +9,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.PriorityController">
-      <Button layoutX="212.0" layoutY="481.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="33.0" prefWidth="49.0" text="Insert" />
-      <Button layoutX="554.0" layoutY="481.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="33.0" prefWidth="72.0" text="Delete" />
-      <Button layoutX="350.0" layoutY="481.0" mnemonicParsing="false" onAction="#onDrawClick" prefHeight="33.0" prefWidth="113.0" text="Draw Gantt Chart" />
-     <Label layoutX="344.0" layoutY="32.0" prefHeight="27.0" prefWidth="113.0" text="Process List">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.PriorityController">
+      <Button layoutX="321.0" layoutY="636.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="44.0" prefWidth="81.0" text="Insert" />
+      <Button layoutX="626.0" layoutY="633.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="44.0" prefWidth="81.0" text="Delete" />
+      <Button layoutX="449.0" layoutY="634.0" mnemonicParsing="false" onAction="#onDrawClick" prefHeight="44.0" prefWidth="129.0" text="Draw Gantt Chart" />
+     <Label layoutX="464.0" layoutY="38.0" prefHeight="27.0" prefWidth="105.0" text="Process List">
          <font>
              <Font name="System Bold Italic" size="18.0" />
          </font>
      </Label>
 
-     <TableView fx:id="tableView" layoutX="160.0" layoutY="81.0" prefHeight="250.0" prefWidth="452.0">
+     <TableView fx:id="tableView" layoutX="227.0" layoutY="82.0" prefHeight="402.0" prefWidth="601.0">
          <columns>
-             <TableColumn fx:id="pidColumn" prefWidth="104.0" text="PID" />
-             <TableColumn fx:id="burstColumn" prefWidth="111.0" text="Burst Time" />
-             <TableColumn fx:id="arrivalTimeColumn" prefWidth="81.0" text="Arrival Time" />
-         <TableColumn fx:id="priorityColumn" prefWidth="155.0" text="Priority" />
+             <TableColumn fx:id="pidColumn" prefWidth="134.66668701171875" text="PID" />
+             <TableColumn fx:id="burstColumn" prefWidth="142.33331298828125" text="Burst Time" />
+             <TableColumn fx:id="arrivalTimeColumn" prefWidth="163.66665649414062" text="Arrival Time" />
+         <TableColumn fx:id="priorityColumn" prefWidth="160.0" text="Priority" />
          </columns>
      </TableView>
-      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="59.0" layoutY="367.0" prefHeight="25.0" prefWidth="153.0" promptText="PID" />
-      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="237.0" layoutY="367.0" promptText="Burst Time" />
-      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="429.0" layoutY="367.0" promptText="Arrival Time" />
-   <TextField fx:id="priorityTextField" alignment="CENTER" layoutX="609.0" layoutY="367.0" promptText="Priority" />
-   <CheckBox fx:id="preemptive" layoutX="457.0" layoutY="429.0" mnemonicParsing="false" text="Preemptive" />
-   <CheckBox fx:id="live" layoutX="240.0" layoutY="429.0" mnemonicParsing="false" text="Live" />
+      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="192.0" layoutY="512.0" prefHeight="44.0" prefWidth="154.0" promptText="PID" />
+      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="370.0" layoutY="512.0" prefHeight="44.0" prefWidth="154.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="562.0" layoutY="512.0" prefHeight="44.0" prefWidth="158.0" promptText="Arrival Time" />
+   <TextField fx:id="priorityTextField" alignment="CENTER" layoutX="742.0" layoutY="512.0" prefHeight="44.0" prefWidth="158.0" promptText="Priority" />
+   <CheckBox fx:id="preemptive" layoutX="571.0" layoutY="594.0" mnemonicParsing="false" text="Preemptive" />
+   <CheckBox fx:id="live" layoutX="394.0" layoutY="594.0" mnemonicParsing="false" text="Live" />
+   <Button layoutX="73.0" layoutY="70.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0" text="&lt;" />
 </AnchorPane>

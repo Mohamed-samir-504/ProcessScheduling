@@ -117,4 +117,20 @@ public class FCFSController implements Initializable {
         stage.setResizable(false);
         stage.show();
     }
+
+    @FXML
+    public void back(ActionEvent ignoredEvent) throws IOException {
+        Stage stage;
+        Scene scene;
+        Parent root;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene2.fxml"));
+        root = loader.load();
+//        FCFSController controller = loader.getController();
+//        controller.init(tableView.getItems());
+        stage = (Stage)((Node) ignoredEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 }

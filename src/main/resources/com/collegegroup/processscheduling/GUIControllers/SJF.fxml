@@ -9,27 +9,28 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.SJFController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.collegegroup.processscheduling.GUIControllers.SJFController">
    <children>
-      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="132.0" layoutY="433.0" promptText="PID" />
-      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="350.0" layoutY="433.0" promptText="Burst Time" />
-      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="561.0" layoutY="433.0" promptText="Arrival Time" />
-      <Button layoutX="200.0" layoutY="523.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
-      <Button layoutX="561.0" layoutY="523.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
-      <Button layoutX="340.0" layoutY="523.0" mnemonicParsing="false" onAction="#onDrawClick" text="Draw Gantt Chart" />
-      <TableView fx:id="tableView" layoutX="200.0" layoutY="100.0" prefHeight="280.0" prefWidth="399.0">
+      <TextField fx:id="pidTextField" alignment="CENTER" layoutX="227.0" layoutY="525.0" prefHeight="46.0" prefWidth="177.0" promptText="PID" />
+      <TextField fx:id="burstTextField" alignment="CENTER" layoutX="442.0" layoutY="525.0" prefHeight="45.0" prefWidth="177.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" alignment="CENTER" layoutX="676.0" layoutY="526.0" prefHeight="45.0" prefWidth="170.0" promptText="Arrival Time" />
+      <Button layoutX="292.0" layoutY="644.0" mnemonicParsing="false" onAction="#insertButtonPushed" prefHeight="46.0" prefWidth="81.0" text="Insert" />
+      <Button layoutX="650.0" layoutY="643.0" mnemonicParsing="false" onAction="#deleteButtonPushed" prefHeight="45.0" prefWidth="81.0" text="Delete" />
+      <Button layoutX="436.0" layoutY="643.0" mnemonicParsing="false" onAction="#onDrawClick" prefHeight="45.0" prefWidth="135.0" text="Draw Gantt Chart" />
+      <TableView fx:id="tableView" layoutX="199.0" layoutY="62.0" prefHeight="436.0" prefWidth="615.0">
         <columns>
-          <TableColumn fx:id="pidColumn" prefWidth="101.0" text="PID" />
-          <TableColumn fx:id="burstColumn" prefWidth="147.0" text="Burst Time" />
-            <TableColumn fx:id="arrivalTimeColumn" prefWidth="150.0" text="Arrival Time" />
+          <TableColumn fx:id="pidColumn" prefWidth="190.33331298828125" text="PID" />
+          <TableColumn fx:id="burstColumn" prefWidth="220.66668701171875" text="Burst Time" />
+            <TableColumn fx:id="arrivalTimeColumn" prefWidth="203.33334350585938" text="Arrival Time" />
         </columns>
       </TableView>
-      <Text layoutX="100.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process List" textAlignment="CENTER" wrappingWidth="599.53515625">
+      <Text layoutX="206.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process List" textAlignment="CENTER" wrappingWidth="599.53515625">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <CheckBox fx:id="preemptive" layoutX="499.0" layoutY="481.0" mnemonicParsing="false" text="Preemptive" />
-      <CheckBox fx:id="live" layoutX="281.0" layoutY="481.0" mnemonicParsing="false" text="Live" />
+      <CheckBox fx:id="preemptive" layoutX="579.0" layoutY="593.0" mnemonicParsing="false" text="Preemptive" />
+      <CheckBox fx:id="live" layoutX="371.0" layoutY="593.0" mnemonicParsing="false" text="Live" />
+      <Button layoutX="53.0" layoutY="62.0" mnemonicParsing="false" onAction="#back" prefHeight="27.0" prefWidth="33.0" text="&lt;" />
    </children>
 </AnchorPane>
