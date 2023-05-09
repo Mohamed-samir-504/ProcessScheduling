@@ -18,7 +18,7 @@
             <Font name="Arial Black" size="33.0" />
          </font>
       </Text>
-      <Button alignment="CENTER" layoutX="605.0" layoutY="599.0" mnemonicParsing="false" onAction="#onClickDraw" prefHeight="47.0" prefWidth="103.0" text="Draw" textOverrun="WORD_ELLIPSIS" />
+      <Button alignment="CENTER" layoutX="667.0" layoutY="607.0" mnemonicParsing="false" onAction="#onClickDraw" prefHeight="47.0" prefWidth="103.0" text="Draw" textOverrun="WORD_ELLIPSIS" />
       <ScrollPane layoutX="136.0" layoutY="96.0" nodeOrientation="LEFT_TO_RIGHT" pannable="true" prefHeight="136.0" prefWidth="1068.0" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="136.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="96.0">
          <padding>
             <Insets left="20.0" right="20.0" top="20.0" />
@@ -91,7 +91,5 @@
          </columns>
       </TableView>
       <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
-      <Button alignment="CENTER" layoutX="753.0" layoutY="599.0" mnemonicParsing="false" onAction="#play" prefHeight="47.0" prefWidth="103.0" text="Play" textOverrun="WORD_ELLIPSIS" />
-      <Button alignment="CENTER" layoutX="887.0" layoutY="599.0" mnemonicParsing="false" onAction="#pause" prefHeight="47.0" prefWidth="103.0" text="Pause" textOverrun="WORD_ELLIPSIS" />
    </children>
 </AnchorPane>
