@@ -174,15 +174,7 @@ public class GanttChartController {
 
         for(var current : resultt){
 
-            int st = currentTimeCounter, idle = 0;
-            while(currentTimeCounter<current.getArrivalTime()) {
-                currentTimeCounter++; idle++;
-            }
 
-            if(idle>0)
-            {
-                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
-            }
 
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
@@ -209,15 +201,6 @@ public class GanttChartController {
 
 
         for(var current : resultt){
-//            int st = currentTimeCounter, idle = 0;
-//            while(currentTimeCounter<current.getArrivalTime()) {
-//                currentTimeCounter++; idle++;
-//            }
-//
-//            if(idle>0)
-//            {
-//                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
-//            }
 
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
@@ -278,17 +261,6 @@ public class GanttChartController {
 
 
         for(var current : resultt){
-
-
-            int st = currentTimeCounter, idle = 0;
-            while(currentTimeCounter<current.getArrivalTime()) {
-                currentTimeCounter++; idle++;
-            }
-
-            if(idle>0)
-            {
-                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
-            }
 
 
 
