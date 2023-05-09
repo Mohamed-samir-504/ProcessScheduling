@@ -94,6 +94,10 @@ public class Process {
     public boolean isCompleted(){
         return this.time_completed==this.burst;
     }
+
+    public int getArrivalTime() {
+        return Arrival;
+    }
 }
 
 

@@ -135,6 +135,18 @@ public class GanttChartController {
         while (!tableView.getItems().isEmpty())
         {
             GUIProcess current = tableView.getItems().get(0);
+
+            int st = currentTimeCounter, idle = 0;
+
+            while(currentTimeCounter<current.getArrivalTimeInt()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+            }
+
             current.setStartTime(currentTimeCounter);
             hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
             currentTimeCounter += Integer.parseInt(current.getBurst());
@@ -161,6 +173,17 @@ public class GanttChartController {
         resultt = modify(SJP_PREE(arr,false));
 
         for(var current : resultt){
+
+            int st = currentTimeCounter, idle = 0;
+            while(currentTimeCounter<current.getArrivalTime()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+            }
+
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
         }
@@ -186,6 +209,16 @@ public class GanttChartController {
 
 
         for(var current : resultt){
+            int st = currentTimeCounter, idle = 0;
+            while(currentTimeCounter<current.getArrivalTime()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+            }
+
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
         }
@@ -202,6 +235,20 @@ public class GanttChartController {
         while (!tableView.getItems().isEmpty())
         {
             GUIProcess current = tableView.getItems().get(0);
+
+            int st = currentTimeCounter, idle = 0;
+
+            while(currentTimeCounter<current.getArrivalTimeInt()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+            }
+
+
+
             current.setStartTime(currentTimeCounter);
             hbox.getChildren().add(processFactory(current,Integer.parseInt(current.getBurst()), currentTimeCounter,totalTime));
             currentTimeCounter += Integer.parseInt(current.getBurst());
@@ -231,6 +278,20 @@ public class GanttChartController {
 
 
         for(var current : resultt){
+
+
+            int st = currentTimeCounter, idle = 0;
+            while(currentTimeCounter<current.getArrivalTime()) {
+                currentTimeCounter++; idle++;
+            }
+
+            if(idle>0)
+            {
+                hbox.getChildren().add(idleProcessFactory(idle,st,totalTime));
+            }
+
+
+
             hbox.getChildren().add(processFactory(toGUIProcess(current),current.end-current.start, current.start,totalTime));
 
         }

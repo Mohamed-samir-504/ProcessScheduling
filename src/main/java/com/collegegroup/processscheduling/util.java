@@ -59,7 +59,7 @@ public abstract class util {
     }
     public static VBox idleProcessFactory( int width, int currentTime , int totalTime)
     {
-        String name = "IDLE";
+        String name = "NO-OP";
         Rectangle newProcess = new Rectangle(50*width,50);
 //        (double) (width * 600) /totalTime + 20
         Text text1 = new Text(name);
@@ -106,7 +106,7 @@ public abstract class util {
 
     public static VBox IDLEliveProcessFactory(String s, int currentTime,int quantum)
     {
-        String name = s;
+        String name = "NO-OP";
         Rectangle newProcess = new Rectangle( 50*quantum,50);
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
