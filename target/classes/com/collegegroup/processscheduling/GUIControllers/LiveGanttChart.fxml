@@ -38,11 +38,11 @@
             <TableColumn fx:id="priorityColumn" prefWidth="81.0" text="Priority" />
         </columns>
       </TableView>
-      <Button layoutX="68.0" layoutY="474.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
-      <Button layoutX="166.0" layoutY="474.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
-      <TextField fx:id="pidTextField" layoutX="68.0" layoutY="305.0" promptText="PID" />
-      <TextField fx:id="burstTextField" layoutX="68.0" layoutY="350.0" promptText="Burst Time" />
-      <TextField fx:id="arrivalTimeTextField" layoutX="68.0" layoutY="403.0" promptText="Arrival Time" />
+      <Button layoutX="68.0" layoutY="523.0" mnemonicParsing="false" onAction="#insertButtonPushed" text="Insert" />
+      <Button layoutX="166.0" layoutY="523.0" mnemonicParsing="false" onAction="#deleteButtonPushed" text="Delete" />
+      <TextField fx:id="pidTextField" layoutX="68.0" layoutY="379.0" promptText="PID" />
+      <TextField fx:id="burstTextField" layoutX="68.0" layoutY="429.0" promptText="Burst Time" />
+      <TextField fx:id="arrivalTimeTextField" layoutX="68.0" layoutY="473.0" promptText="Arrival Time" />
       <Text layoutX="628.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Live Feed" />
       <Text layoutX="441.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Process Table" wrappingWidth="77.3525390625" />
       <Text layoutX="373.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time:">
@@ -91,8 +91,7 @@
          </columns>
       </TableView>
       <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" onAction="#back" text="&lt;" />
-      <Button alignment="CENTER" layoutX="731.0" layoutY="599.0" mnemonicParsing="false" onAction="#stop" prefHeight="47.0" prefWidth="103.0" text="Stop" textOverrun="WORD_ELLIPSIS" />
-      <Button alignment="CENTER" layoutX="871.0" layoutY="599.0" mnemonicParsing="false" onAction="#play" prefHeight="47.0" prefWidth="103.0" text="Play" textOverrun="WORD_ELLIPSIS" />
-      <Button alignment="CENTER" layoutX="1009.0" layoutY="599.0" mnemonicParsing="false" onAction="#pause" prefHeight="47.0" prefWidth="103.0" text="Pause" textOverrun="WORD_ELLIPSIS" />
+      <Button alignment="CENTER" layoutX="753.0" layoutY="599.0" mnemonicParsing="false" onAction="#play" prefHeight="47.0" prefWidth="103.0" text="Play" textOverrun="WORD_ELLIPSIS" />
+      <Button alignment="CENTER" layoutX="887.0" layoutY="599.0" mnemonicParsing="false" onAction="#pause" prefHeight="47.0" prefWidth="103.0" text="Pause" textOverrun="WORD_ELLIPSIS" />
    </children>
 </AnchorPane>

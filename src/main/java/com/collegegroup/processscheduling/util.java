@@ -38,7 +38,7 @@ public abstract class util {
     public static VBox processFactory(GUIProcess s, int width, int currentTime , int totalTime)
     {
         String name = s.getPid();
-        Rectangle newProcess = new Rectangle(50*width,50);
+        Rectangle newProcess = new Rectangle(300*width/totalTime + 30,50);
 //        (double) (width * 600) /totalTime + 20
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
@@ -60,7 +60,7 @@ public abstract class util {
     public static VBox idleProcessFactory( int width, int currentTime , int totalTime)
     {
         String name = "NO-OP";
-        Rectangle newProcess = new Rectangle(50*width,50);
+        Rectangle newProcess = new Rectangle(300*width/totalTime + 30,50);
 //        (double) (width * 600) /totalTime + 20
         Text text1 = new Text(name);
         //create a stack pane to stack the rectangle and text on top of each other
@@ -202,6 +202,9 @@ public abstract class util {
                     f = false;
                     pro.burst=0;
                 }
+            }
+            else{
+                f = false;
             }
             if(pro.burst <= 0){
                 processes.remove(itr);
