@@ -627,4 +627,27 @@ public class LiveGanttChartController {
     }
 
 
+
+
+    @FXML
+    public void pause(ActionEvent ignoredEvent) throws IOException {
+
+        timeline.pause();
+    }
+
+    @FXML
+    public void play(ActionEvent ignoredEvent) throws IOException {
+
+        timeline.play();
+    }
+
+
+
+
+
+
+
+
+
+
 }
