@@ -1,7 +1,8 @@
 # Process Scheduling App
 
 This is a Java-based application that simulates process scheduling and displays the results in a live Gantt chart.
-
+## My contribution
+I have made most of the GUI and some of the scheduling algorithms.
 ## Features
 - Simulate various process scheduling algorithms
 - Display results in a live Gantt chart
